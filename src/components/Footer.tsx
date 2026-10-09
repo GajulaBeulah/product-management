@@ -4,10 +4,10 @@ import { siteConfig } from "@/site-config";
 export function Footer() {
   return (
     <footer className="bg-[var(--color-primary)] text-white pt-16 pb-8 border-t border-[var(--color-divider)]/10 mt-auto">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div className="container mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 bg-[var(--color-accent)] text-[var(--color-primary)] rounded flex items-center justify-center font-bold text-xl">
+            <div className="w-10 h-10 bg-[var(--color-primary)] text-[var(--color-accent)] rounded flex items-center justify-center font-bold text-xl">
               TA
             </div>
             <span className="font-bold text-xl tracking-tight">
@@ -24,7 +24,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold text-lg mb-6 text-[var(--color-accent)]">Services</h3>
+          <h3 className="font-semibold text-lg mb-6 text-[var(--color-accent)] h-10 flex items-center">Services</h3>
           <ul className="flex flex-col gap-3 text-gray-400 text-sm">
             <li><Link href="/services/flat-management" className="hover:text-white transition-colors">Flat Management</Link></li>
             <li><Link href="/services/apartment-management" className="hover:text-white transition-colors">Apartment Management</Link></li>
@@ -35,17 +35,15 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold text-lg mb-6 text-[var(--color-accent)]">Company</h3>
+          <h3 className="font-semibold text-lg mb-6 text-[var(--color-accent)] h-10 flex items-center">Company</h3>
           <ul className="flex flex-col gap-3 text-gray-400 text-sm">
             <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
             <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-            <li><Link href="/#" className="hover:text-white transition-colors">Terms of Service</Link></li>
-            <li><Link href="/#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="font-semibold text-lg mb-6 text-[var(--color-accent)]">Contact</h3>
+          <h3 className="font-semibold text-lg mb-6 text-[var(--color-accent)] h-10 flex items-center">Contact</h3>
           <ul className="flex flex-col gap-3 text-gray-400 text-sm">
             <li>
               <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-white transition-colors tabular-nums">
@@ -61,8 +59,13 @@ export function Footer() {
         </div>
       </div>
       
-      <div className="container mx-auto px-4 pt-8 border-t border-white/10 text-center text-sm text-gray-500 pb-16 md:pb-0">
-        &copy; {siteConfig.brand.foundedYear} {siteConfig.brand.name}. All rights reserved.
+      <div className="container mx-auto max-w-6xl px-4 pt-8 border-t border-white/10 text-center text-sm text-gray-500 pb-16 md:pb-0 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+          &copy; {siteConfig.brand.foundedYear} {siteConfig.brand.name}. All rights reserved.
+        </div>
+        <div>
+          Designed by <a href="https://edonesolutions.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-cyan-400 transition-colors font-medium">eDone Solutions</a>
+        </div>
       </div>
     </footer>
   );

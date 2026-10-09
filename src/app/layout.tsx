@@ -4,7 +4,6 @@ import "./globals.css";
 import { siteConfig } from "@/site-config";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { MobileStickyBar } from "@/components/MobileStickyBar";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -29,7 +28,6 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
-        <MobileStickyBar />
         <FloatingWhatsApp />
       </body>
     </html>

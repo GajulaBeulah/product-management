@@ -6,10 +6,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { siteConfig } from "@/site-config";
-import { 
-  Building, Home, Key, MapPin, Search, ShieldCheck, 
+import {
+  Building, Home, Key, MapPin, Search, ShieldCheck,
   ChevronDown, ArrowRight, CheckCircle2, ChevronRight, Briefcase,
-  MessageCircle, Phone
+  MessageCircle, Phone, Star, Quote, Camera, UserCheck, Globe, Banknote
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,10 +18,11 @@ export default function HomePage() {
   const container = useRef<HTMLDivElement>(null);
   const [selectedType, setSelectedType] = useState("Flat");
   const [selectedLocality, setSelectedLocality] = useState("Gachibowli");
+  const [openLocality, setOpenLocality] = useState(false);
+  const [openType, setOpenType] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
   useGSAP(() => {
-    // Hero Entrance
     gsap.from(".hero-text", {
       y: 40,
       opacity: 0,
@@ -30,7 +31,6 @@ export default function HomePage() {
       ease: "power3.out",
     });
 
-    // Verticals Entrance
     gsap.from(".vertical-card", {
       scrollTrigger: {
         trigger: ".verticals-section",
@@ -101,114 +101,128 @@ export default function HomePage() {
   ];
 
   return (
-    <div ref={container} className="pb-20 md:pb-0">
-      {/* 2. Hero Section */}
-      <section className="bg-[var(--color-primary)] text-white pt-24 pb-32 md:pb-40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)] to-[#061121] z-0"></div>
-        <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Left Text */}
-          <div className="max-w-2xl relative z-20">
-            <h1 className="hero-text text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6">
-              Complete Custody For Your Assets In Hyderabad
-            </h1>
-            <p className="hero-text text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-lg">
-              On-ground verification, strict tenant KYC, and zero hidden charges. Dedicated remote management for NRIs and local investors.
+    <div ref={container} className="bg-white text-gray-800 font-sans">
+      <section className="relative pt-24 pb-32 min-h-[600px] flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Background" />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="max-w-4xl mx-auto">
+            <p className="hero-text text-xl md:text-2xl font-serif italic text-cyan-400 mb-4 tracking-wide">
+              Secure unforgettable moments with us
             </p>
-          </div>
-
-          {/* Right Hero Image */}
-          <div className="hero-text hidden lg:block h-[500px] relative z-10 w-full rounded-[40px] overflow-hidden shadow-2xl border-4 border-white/10">
-            <img src="/images/apartment.jpg" alt="Property Management in Hyderabad" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/40 to-transparent"></div>
+            <h1 className="hero-text text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 drop-shadow-lg">
+              Your Assets, Our Care
+            </h1>
+            <div className="hero-text flex flex-wrap justify-center gap-4">
+              <a href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, '')}`} className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-1">
+                Call Now
+              </a>
+              <Link href="/services/flat-management" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-1">
+                Explore Services
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Floating Quick Selector Widget overlapping hero bottom */}
-        <div className="container mx-auto px-4 relative z-30 transform translate-y-16 lg:translate-y-24">
-          <div className="bg-white text-[var(--color-foreground)] rounded-2xl p-6 md:p-8 shadow-2xl border border-[var(--color-divider)] max-w-4xl flex flex-col md:flex-row items-end gap-6">
-            
-            <div className="flex-1 w-full">
-              <label className="block text-sm font-semibold text-[var(--color-muted)] mb-2">Property Type</label>
-              <select 
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
-                className="w-full appearance-none bg-transparent border-b-2 border-[var(--color-divider)] rounded-none px-0 py-2 text-lg font-bold focus:outline-none focus:border-[var(--color-accent)]"
+        {/* Floating Search Widget */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-30">
+          <div className="bg-white rounded-3xl md:rounded-full p-6 md:p-2 md:pl-8 shadow-2xl flex flex-col md:flex-row items-center gap-4 md:gap-4">
+            <div 
+              className="flex-1 flex items-center gap-3 w-full border-b md:border-b-0 md:border-r border-gray-200 pb-4 md:pb-0 relative cursor-pointer"
+              onMouseLeave={() => setOpenLocality(false)}
+            >
+              <MapPin className="text-cyan-500 w-5 h-5 shrink-0" />
+              <div 
+                className="w-full flex justify-between items-center font-medium text-gray-700" 
+                onClick={() => setOpenLocality(!openLocality)}
               >
-                {["Flat", "Apartment", "Villa / Farmhouse", "Plot / Land", "Commercial"].map((type) => (
-                  <option key={type} value={type}>{type}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex-1 w-full">
-              <label className="block text-sm font-semibold text-[var(--color-muted)] mb-2">Target Locality</label>
-              <div className="relative">
-                <select 
-                  value={selectedLocality}
-                  onChange={(e) => setSelectedLocality(e.target.value)}
-                  className="w-full appearance-none bg-transparent border-b-2 border-[var(--color-divider)] rounded-none px-0 py-2 text-lg font-bold focus:outline-none focus:border-[var(--color-accent)]"
-                >
-                  {siteConfig.localities.map((loc) => (
-                    <option key={loc} value={loc}>{loc}</option>
-                  ))}
-                  <option value="Other">Other...</option>
-                </select>
-                <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-primary)] pointer-events-none" />
+                {selectedLocality}
+                <ChevronDown className="w-4 h-4 text-gray-400" />
               </div>
+              
+              {openLocality && (
+                <div className="absolute top-full left-0 w-full mt-2 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 py-2">
+                  {[...siteConfig.localities, "Other"].map((loc) => (
+                    <div 
+                      key={loc}
+                      onClick={() => {
+                        setSelectedLocality(loc);
+                        setOpenLocality(false);
+                      }}
+                      className="px-4 py-2 hover:bg-cyan-50 hover:text-cyan-600 transition-colors cursor-pointer text-sm font-medium text-gray-700"
+                    >
+                      {loc === "Other" ? "Other Locations..." : loc}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-
-            <a 
+            <div 
+              className="flex-1 flex items-center gap-3 w-full border-b md:border-b-0 border-gray-200 pb-4 md:pb-0 relative cursor-pointer"
+              onMouseLeave={() => setOpenType(false)}
+            >
+              <Building className="text-cyan-500 w-5 h-5 shrink-0" />
+              <div 
+                className="w-full flex justify-between items-center font-medium text-gray-700"
+                onClick={() => setOpenType(!openType)}
+              >
+                {selectedType}
+                <ChevronDown className="w-4 h-4 text-gray-400" />
+              </div>
+              
+              {openType && (
+                <div className="absolute top-full left-0 w-full mt-2 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 py-2">
+                  {["Flat", "Apartment", "Villa / Farmhouse", "Plot / Land", "Commercial"].map((type) => (
+                    <div 
+                      key={type}
+                      onClick={() => {
+                        setSelectedType(type);
+                        setOpenType(false);
+                      }}
+                      className="px-4 py-2 hover:bg-cyan-50 hover:text-cyan-600 transition-colors cursor-pointer text-sm font-medium text-gray-700"
+                    >
+                      {type}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <a
               href={widgetWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full md:w-auto bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white px-10 py-4 rounded-xl font-bold transition-colors flex items-center justify-center gap-2"
+              className="w-full md:w-auto bg-cyan-500 hover:bg-cyan-600 text-white px-10 py-3.5 rounded-full font-bold transition-colors text-center"
             >
-              <Search className="w-5 h-5" /> Search
+              Search
             </a>
           </div>
         </div>
       </section>
 
-      {/* 3. Categories / 5 Verticals Showcase */}
-      <section className="verticals-section py-24 bg-[var(--color-background)] pt-40" id="services">
-        <div className="container mx-auto px-4 overflow-hidden">
-          <div className="max-w-xl mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[var(--color-primary)] relative inline-block">
-              Categories
-              <div className="absolute -bottom-2 left-0 w-1/2 h-1 bg-[var(--color-accent)] rounded-full"></div>
-            </h2>
-            <p className="text-[var(--color-muted)] text-sm md:text-base mt-6">
-              Here are specialized asset custody frameworks tailored to your specific property class. Don't be confused—they're already grouped by category.
-            </p>
-          </div>
+      {/* 2. Categories */}
+      <section className="verticals-section py-24 bg-[#F8FAFC]" id="services">
+        <div className="container mx-auto px-4 text-center">
+          <p className="font-serif italic text-2xl text-cyan-500 mb-2">Specialized Assets For You</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-16">Asset Categories</h2>
 
-          <div className="flex overflow-x-auto pb-12 pt-4 snap-x hide-scrollbar gap-6 md:justify-center">
+          <div className="flex overflow-x-auto pb-12 snap-x hide-scrollbar gap-6 md:justify-center px-4">
             {[
-              { title: "Flat", img: "/images/flat.jpg", href: "/services/flat-management", icon: <Key className="w-5 h-5 text-[var(--color-primary)]" /> },
-              { title: "Apartment", img: "/images/commercial.jpg", href: "/services/apartment-management", icon: <Building className="w-5 h-5 text-[var(--color-primary)]" /> },
-              { title: "Villa", img: "/images/villa.jpg", href: "/services/villa-farmhouse", icon: <Home className="w-5 h-5 text-[var(--color-primary)]" /> },
-              { title: "Plot", img: "/images/flat.jpg", href: "/services/plot-land-management", icon: <MapPin className="w-5 h-5 text-[var(--color-primary)]" /> },
-              { title: "Commercial", img: "/images/commercial.jpg", href: "/services/commercial-property", icon: <Briefcase className="w-5 h-5 text-[var(--color-primary)]" /> },
+              { title: "Flat", img: "/images/flat.jpg", href: "/services/flat-management" },
+              { title: "Apartment", img: "/images/apartment.jpg", href: "/services/apartment-management" },
+              { title: "Villa", img: "/images/villa.jpg", href: "/services/villa-farmhouse" },
+              { title: "Plot", img: "/images/plot.jpg", href: "/services/plot-land-management" },
+              { title: "Commercial", img: "/images/commercial.jpg", href: "/services/commercial-property" },
             ].map((cat, i) => (
               <Link key={i} href={cat.href} className="vertical-card shrink-0 snap-center group">
-                <div className="w-40 h-64 md:w-52 md:h-80 rounded-[100px] bg-white shadow-md group-hover:shadow-xl transition-all group-hover:-translate-y-2 relative flex flex-col border border-[var(--color-divider)]">
-                  {/* Top Image */}
-                  <div className="w-full h-[65%] rounded-t-[100px] overflow-hidden relative">
+                <div className="w-[200px] h-[280px] rounded-[2rem] bg-white shadow-md group-hover:shadow-xl transition-all overflow-hidden flex flex-col relative border border-gray-100">
+                  <div className="h-[75%] w-full overflow-hidden">
                     <img src={cat.img} alt={cat.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   </div>
-                  
-                  {/* Overlapping Avatar */}
-                  <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center z-10">
-                    <div className="w-12 h-12 bg-[var(--color-background)] rounded-full flex items-center justify-center text-[var(--color-primary)] font-bold">
-                      {cat.icon}
-                    </div>
-                  </div>
-
-                  {/* Bottom Text Area */}
-                  <div className="w-full h-[35%] rounded-b-[100px] flex flex-col items-center justify-end pb-8 pt-4 bg-white relative z-0">
-                    <h3 className="font-bold text-[var(--color-primary)] text-lg mb-1">{cat.title}</h3>
-                    <p className="text-xs text-[var(--color-muted)] font-medium">@totalasset</p>
+                  <div className="h-[25%] flex flex-col items-center justify-center bg-white px-2">
+                    <h3 className="font-bold text-gray-900">{cat.title}</h3>
+                    <p className="text-xs text-gray-500">See more</p>
                   </div>
                 </div>
               </Link>
@@ -217,46 +231,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Fiduciary Workflow */}
-      <section className="py-24 bg-white border-y border-[var(--color-divider)]">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[var(--color-primary)]">Fiduciary Workflow</h2>
-            <p className="text-[var(--color-muted)] text-lg">Our seamless 4-step process for securing and managing your property with absolute transparency.</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            {/* Left Overlapping Images */}
-            <div className="relative h-[450px] md:h-[550px] w-full mt-8 md:mt-0">
-              {/* Back Image (Rounded rectangle) */}
-              <div className="absolute top-0 right-0 w-3/4 h-[350px] md:h-[400px] rounded-[40px] overflow-hidden shadow-xl border-4 border-white z-10">
-                <img src="/images/villa.jpg" alt="Workflow Step 1" className="w-full h-full object-cover" />
+      {/* 3. Fiduciary Workflow (Plan Your Trip) */}
+      <section className="py-24 bg-white" id="workflow">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left Image Collage */}
+            <div className="relative h-[500px] flex gap-4">
+              <div className="flex flex-col gap-4 w-1/2">
+                <div className="h-2/3 rounded-[3rem] overflow-hidden shadow-lg">
+                  <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Workflow 1" />
+                </div>
+                <div className="h-1/3 rounded-[2rem] overflow-hidden shadow-lg">
+                  <img src="/images/commercial.jpg" className="w-full h-full object-cover" alt="Workflow 2" />
+                </div>
               </div>
-              {/* Front Image (Arch shape) */}
-              <div className="absolute bottom-0 left-0 w-2/3 h-[280px] md:h-[350px] rounded-t-full rounded-b-2xl overflow-hidden shadow-2xl border-8 border-white z-20">
-                <img src="/images/flat.jpg" alt="Workflow Step 2" className="w-full h-full object-cover" />
+              <div className="flex flex-col gap-4 w-1/2 pt-12">
+                <div className="h-1/3 rounded-full overflow-hidden shadow-lg aspect-square">
+                  <img src="/images/inspection.jpg" className="w-full h-full object-cover" alt="Workflow 3" />
+                </div>
+                <div className="h-2/3 rounded-[3rem] overflow-hidden shadow-lg">
+                  <img src="/images/flat.jpg" className="w-full h-full object-cover" alt="Workflow 4" />
+                </div>
               </div>
             </div>
 
-            {/* Right Vertical Timeline */}
-            <div className="relative">
-              {/* Vertical Dashed Line */}
-              <div className="absolute left-6 top-8 bottom-8 w-px border-l-2 border-dashed border-[var(--color-divider)]"></div>
-              
-              <div className="space-y-12 relative z-10">
+            {/* Right Content */}
+            <div>
+              <p className="font-serif italic text-2xl text-cyan-500 mb-2">Let's Secure Together</p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Plan Your Management With Us</h2>
+              <p className="text-gray-600 mb-10 leading-relaxed">
+                There are many variations of property management available, but the majority suffer from hidden costs. We provide absolute transparency through injected professionalism.
+              </p>
+
+              <div className="space-y-8">
                 {[
-                  { step: "01", title: "Site Inspection", desc: "On-ground audit and condition reporting." },
-                  { step: "02", title: "Proposal", desc: "Tailored service agreement & quote." },
-                  { step: "03", title: "Handover", desc: "Complete custody handover & key protocol." },
-                  { step: "04", title: "Management", desc: "Recurring reports & rent remittance." },
-                ].map((item) => (
-                  <div key={item.step} className="flex gap-6 items-start group">
-                    <div className="w-12 h-12 bg-white border-2 border-[var(--color-accent)] text-[var(--color-primary)] rounded-full flex items-center justify-center font-bold text-lg shadow-sm shrink-0 group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors">
-                      {item.step}
+                  { title: "Exclusive Proposal", desc: "Tailored service agreement & flat-fee quote." },
+                  { title: "Professional Guide", desc: "A dedicated manager assigned as your single contact." },
+                  { title: "Secure Handover", desc: "Complete custody handover & key protocol." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-5 items-start group">
+                    <div className="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+                      <ShieldCheck className="w-6 h-6" />
                     </div>
-                    <div className="pt-2">
-                      <h3 className="text-xl font-bold mb-2 text-[var(--color-primary)]">Step {item.step.replace('0','')} : {item.title}</h3>
-                      <p className="text-[var(--color-muted)] leading-relaxed">{item.desc}</p>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-lg">{item.title}</h4>
+                      <p className="text-gray-500 text-sm mt-1">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -266,125 +285,125 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Why Property Owners Trust Us */}
-      <section className="py-24 bg-[var(--color-background)]" id="why-us">
+      {/* 4. Why Owners Trust Us (4 points from design doc) */}
+      <section className="py-24 bg-gray-50 border-y border-gray-100">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 text-[var(--color-primary)]">Why Owners Trust Us</h2>
-            <p className="text-[var(--color-muted)] text-lg max-w-2xl mx-auto">Absolute transparency and uncompromising fiduciary standards.</p>
+            <p className="font-serif italic text-2xl text-cyan-500 mb-2">Absolute Transparency</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">Why Property Owners Trust Us</h2>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Transparent Repairs",
-                desc: "Photo-verified repair estimates prior to execution.",
-                icon: <ShieldCheck className="w-8 h-8 text-[var(--color-accent)]" />
-              },
-              {
-                title: "Strict KYC",
-                desc: "Strict tenant KYC (police & employment verified).",
-                icon: <CheckCircle2 className="w-8 h-8 text-[var(--color-accent)]" />
-              },
-              {
-                title: "NRI Dashboard",
-                desc: "Dedicated remote dashboard for NRI owners.",
-                icon: <Briefcase className="w-8 h-8 text-[var(--color-accent)]" />
-              },
-              {
-                title: "Zero Escrow",
-                desc: "Zero escrow holding: direct rent transfer to owner.",
-                icon: <Building className="w-8 h-8 text-[var(--color-accent)]" />
-              }
-            ].map((item, i) => (
-              <div key={i} className="bg-white border-2 border-[var(--color-divider)] p-8 rounded-[30px] flex flex-col items-center text-center shadow-sm hover:shadow-lg transition-all group hover:-translate-y-2">
-                <div className="w-20 h-20 bg-[var(--color-background)] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {item.icon}
+
+          <div className="flex overflow-x-auto pb-8 -mx-4 px-4 snap-x snap-mandatory gap-6 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:snap-none hide-scrollbar">
+            
+            {/* Card 1 */}
+            <div className="relative rounded-[2rem] overflow-hidden group h-[450px] flex flex-col justify-end w-[85vw] md:w-auto shrink-0 snap-center">
+              <img src="/images/flat.jpg" alt="Verified Repairs" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
+              
+              <div className="relative z-20 p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 shadow-sm">
+                  <Camera className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-[var(--color-primary)] mb-4">{item.title}</h3>
-                <p className="text-[var(--color-muted)] leading-relaxed">{item.desc}</p>
+                <h3 className="text-2xl font-bold text-white leading-tight">Verified<br/>Repairs</h3>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">Photo-verified repair estimates prior to any maintenance execution.</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* 6. Hyderabad Geographic Coverage Matrix */}
-      <section className="py-24 bg-white border-t border-[var(--color-divider)]" id="coverage">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-16 text-center text-[var(--color-primary)]">Geographic Coverage in Hyderabad</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)]">
-              <h3 className="text-xl font-bold mb-4 text-[var(--color-accent)]">IT & High-Rise Corridor</h3>
-              <p className="text-[var(--color-muted)] leading-relaxed">Gachibowli, Hitec City, Madhapur, Kondapur, Financial District, Nanakramguda, Kokapet, Narsingi, Tellapur.</p>
-            </div>
-            <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)]">
-              <h3 className="text-xl font-bold mb-4 text-[var(--color-accent)]">Prime Central</h3>
-              <p className="text-[var(--color-muted)] leading-relaxed">Jubilee Hills, Banjara Hills.</p>
-            </div>
-            <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)]">
-              <h3 className="text-xl font-bold mb-4 text-[var(--color-accent)]">Villa & Open Land Belt</h3>
-              <p className="text-[var(--color-muted)] leading-relaxed">Shankarpally, Moinabad, Shamshabad, Chevella, Maheshwaram.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6.5 Gallery Section */}
-      <section className="py-24 bg-white border-t border-[var(--color-divider)]" id="gallery">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[var(--color-primary)]">Premium Asset Portfolio</h2>
-            <p className="text-[var(--color-muted)] text-lg">A glimpse into the properties under our fiduciary care.</p>
-          </div>
-          <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {[
-              { img: "/images/villa.jpg", title: "Luxury Villas" },
-              { img: "/images/flat.jpg", title: "Premium Flats" },
-              { img: "/images/commercial.jpg", title: "Commercial Spaces" },
-              { img: "/images/villa.jpg", title: "Farmhouses" },
-              { img: "/images/flat.jpg", title: "Apartments" },
-              { img: "/images/commercial.jpg", title: "Retail Spaces" },
-              { img: "/images/villa.jpg", title: "Gated Communities" },
-              { img: "/images/flat.jpg", title: "Penthouse Suites" },
-            ].map((item, i) => (
-              <div key={i} className="w-[280px] h-[200px] md:w-[320px] md:h-[240px] rounded-2xl overflow-hidden shadow-md shrink-0 snap-start relative group">
-                <img src={item.img} alt={item.title} className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4 md:p-5">
-                  <h3 className="text-white font-bold text-lg md:text-xl tracking-tight">{item.title}</h3>
+            {/* Card 2 */}
+            <div className="relative rounded-[2rem] overflow-hidden group h-[450px] flex flex-col justify-end w-[85vw] md:w-auto shrink-0 snap-center">
+              <img src="/images/apartment.jpg" alt="Strict Tenant KYC" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
+              
+              <div className="relative z-20 p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 shadow-sm">
+                  <UserCheck className="w-5 h-5" />
                 </div>
+                <h3 className="text-2xl font-bold text-white leading-tight">Strict<br/>Tenant KYC</h3>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">Strict tenant KYC (police verification + employment verification).</p>
               </div>
-            ))}
+            </div>
+
+            {/* Card 3 */}
+            <div className="relative rounded-[2rem] overflow-hidden group h-[450px] flex flex-col justify-end w-[85vw] md:w-auto shrink-0 snap-center">
+              <img src="/images/commercial.jpg" alt="Border-Free Management" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
+              
+              <div className="relative z-20 p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 shadow-sm">
+                  <Globe className="w-5 h-5" />
+                </div>
+                <h3 className="text-2xl font-bold text-white leading-tight">Border-Free<br/>Management</h3>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">Dedicated support designed specifically to eliminate timezone friction for NRI property owners.</p>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="relative rounded-[2rem] overflow-hidden group h-[450px] flex flex-col justify-end w-[85vw] md:w-auto shrink-0 snap-center">
+              <img src="/images/plot.jpg" alt="Zero Escrow" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
+              
+              <div className="relative z-20 p-6 flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 shadow-sm">
+                  <Banknote className="w-5 h-5" />
+                </div>
+                <h3 className="text-2xl font-bold text-white leading-tight">Zero<br/>Escrow</h3>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">Zero funds held in escrow: rent transferred directly to owner's designated account.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 6.7 Review Section */}
-      <section className="py-24 bg-[var(--color-background)]" id="reviews">
-        <div className="container mx-auto px-4">
+      {/* 5. Geographic Coverage (Gallery Masonry) */}
+      <section className="py-24 bg-white" id="coverage">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[var(--color-primary)]">Client Testimonials</h2>
-            <p className="text-[var(--color-muted)] text-lg">Trusted by NRI owners and local investors alike.</p>
+            <p className="font-serif italic text-2xl text-cyan-500 mb-2">Top Coverage</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">Geographic Coverage</h2>
           </div>
-          <div className="flex overflow-x-auto pb-12 snap-x hide-scrollbar gap-8 px-4 md:px-8 max-w-7xl mx-auto">
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px]">
+            <div className="rounded-[2rem] overflow-hidden shadow-md">
+              <img src="/images/apartment.jpg" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Gachibowli" />
+            </div>
+            <div className="rounded-[2rem] overflow-hidden shadow-md">
+              <img src="/images/commercial.jpg" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Jubilee Hills" />
+            </div>
+            <div className="col-span-2 rounded-[2rem] overflow-hidden shadow-md relative group">
+              <img src="/images/villa.jpg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Shankarpally" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
+                <h3 className="text-white text-2xl font-bold">Premium IT Corridors & Villa Belts</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Testimonials */}
+      <section className="py-24 bg-[#F8FAFC]" id="reviews">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-16">
+            <p className="font-serif italic text-2xl text-cyan-500 mb-2">Testimonials</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-primary)]">What Clients Say About Us</h2>
+          </div>
+
+          <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 -mx-4 px-4 md:mx-0 md:px-0">
             {reviewsData.map((review, i) => (
-              <div key={i} className="bg-white p-10 rounded-[30px] border border-[var(--color-divider)] shadow-sm hover:shadow-lg transition-shadow flex flex-col shrink-0 w-[350px] md:w-[420px] snap-center">
-                <div className="text-[var(--color-accent)] mb-6">
-                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
+              <div key={i} className="w-[85vw] md:w-[350px] shrink-0 snap-center bg-white rounded-[2rem] shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col h-full border border-gray-100">
+                <div className="p-8 flex-1">
+                  <Quote className="w-8 h-8 text-cyan-200 mb-4" />
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {review.text}
+                  </p>
                 </div>
-                <p className="text-[var(--color-muted)] mb-10 leading-relaxed flex-1 text-lg">
-                  "{review.text}"
-                </p>
-                <div className="flex items-center gap-4 mt-auto">
-                  <div className="w-14 h-14 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full flex items-center justify-center font-bold text-xl shrink-0">
+                <div className="bg-cyan-50 p-6 flex items-center gap-4 border-t border-cyan-100 mt-auto">
+                  <div className="w-12 h-12 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold shrink-0">
                     {review.initials}
                   </div>
                   <div>
-                    <h4 className="font-bold text-[var(--color-primary)] text-lg">{review.name}</h4>
-                    <p className="text-sm text-[var(--color-muted)] font-medium">{review.role}</p>
+                    <h4 className="font-bold text-[var(--color-primary)] text-sm">{review.name}</h4>
+                    <p className="text-xs text-cyan-700">{review.role}</p>
                   </div>
                 </div>
               </div>
@@ -393,38 +412,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. Comprehensive FAQ Section */}
+      {/* 7. FAQ */}
       <section className="py-24 bg-white" id="faq">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16 flex flex-col items-center">
-            <div className="bg-[var(--color-background)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6 inline-block border border-[var(--color-divider)]">
-              TotalAsset • Fiduciary Solutions
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[var(--color-primary)]">Frequently Asked Questions</h2>
+            <p className="font-serif italic text-2xl text-cyan-500 mb-2">Queries Solved</p>
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-8">Frequently Asked Questions</h2>
           </div>
 
           <div className="space-y-4">
             {faqsData.map((faq, idx) => {
               const isOpen = activeFaq === idx;
               return (
-                <div 
-                  key={idx} 
-                  className={`bg-[#FAF9F6] rounded-2xl border-l-[6px] shadow-sm overflow-hidden transition-all duration-300 ${isOpen ? 'border-[var(--color-accent)]' : 'border-[var(--color-primary)] hover:border-[var(--color-accent)]'}`}
+                <div
+                  key={idx}
+                  className={`bg-white rounded-[2rem] shadow-sm overflow-hidden transition-all duration-300 border ${isOpen ? 'border-cyan-500 ring-2 ring-cyan-100' : 'border-gray-200 hover:border-cyan-300'}`}
                 >
-                  <div 
+                  <div
                     className="flex items-center justify-between p-6 cursor-pointer"
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                   >
-                    <h3 className="text-lg font-bold text-[var(--color-primary)] pr-8">
+                    <h3 className="text-lg font-bold text-gray-900 pr-8">
                       {faq.q}
                     </h3>
-                    <div className={`w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                    <div className={`w-10 h-10 bg-cyan-50 text-cyan-600 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-cyan-500 text-white' : ''}`}>
                       <ChevronDown className="w-5 h-5" />
                     </div>
                   </div>
-                  
-                  <div 
-                    className={`px-6 text-[var(--color-muted)] leading-relaxed transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 pb-0 opacity-0'}`}
+
+                  <div
+                    className={`px-6 text-gray-600 leading-relaxed transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 pb-0 opacity-0'}`}
                   >
                     {faq.a}
                   </div>
@@ -436,17 +453,50 @@ export default function HomePage() {
       </section>
 
       {/* 8. Final CTA */}
-      <section className="py-24 bg-[var(--color-primary)] text-white text-center">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-4xl font-bold mb-6">Ready to secure your asset?</h2>
-          <p className="text-xl text-gray-300 mb-10">Get a tailored quote and consultation today.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} className="bg-[var(--color-accent)] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[var(--color-accent)]/90 transition-colors inline-flex items-center justify-center gap-2">
-              <MessageCircle className="w-5 h-5" /> Message on WhatsApp
-            </a>
-            <a href={`tel:${siteConfig.contact.phone}`} className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-white hover:text-[var(--color-primary)] transition-colors inline-flex items-center justify-center gap-2">
-              <Phone className="w-5 h-5" /> Call {siteConfig.contact.phoneDisplay}
-            </a>
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="bg-[var(--color-primary)] rounded-[3rem] p-10 md:p-16 text-white flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl relative overflow-hidden">
+            
+            {/* Left Content */}
+            <div className="lg:w-3/5 z-10 relative">
+              <div className="inline-flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5 mb-6 bg-white/5 backdrop-blur-sm">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" /> 
+                <span className="text-sm font-medium text-gray-200">Professional Care</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-semibold mb-6 leading-[1.15]">
+                Your Property Deserves<br/>Professional Care
+              </h2>
+              <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl">
+                Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, TotalAsset can help you manage it with greater confidence and transparency.
+              </p>
+            </div>
+
+            {/* Right Content */}
+            <div className="lg:w-2/5 flex flex-col items-start lg:items-end w-full z-10 relative">
+              <div className="flex flex-col sm:flex-row gap-4 w-full justify-start lg:justify-end mb-8">
+                <a href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, '')}`} className="bg-cyan-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-cyan-400 transition-colors flex items-center justify-center gap-2 shadow-lg">
+                  Contact Us <ArrowRight className="w-5 h-5" />
+                </a>
+                <a href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                  <MessageCircle className="w-5 h-5" /> WhatsApp Us
+                </a>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <div className="flex -space-x-3">
+                  <img src="/images/flat.jpg" alt="Property" className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-30 relative" />
+                  <img src="/images/apartment.jpg" alt="Property" className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-20 relative" />
+                  <img src="/images/villa.jpg" alt="Property" className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-10 relative" />
+                  <div className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] bg-cyan-500 flex items-center justify-center text-xs font-bold text-white z-0 relative">
+                    +5k
+                  </div>
+                </div>
+                <div className="text-sm">
+                  <span className="font-bold text-white">5/5</span> <span className="text-gray-400">(500+ properties)</span>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>
@@ -454,17 +504,4 @@ export default function HomePage() {
   );
 }
 
-function VerticalCard({ icon, title, desc, href }: { icon: React.ReactNode, title: string, desc: string, href: string }) {
-  return (
-    <div className="vertical-card bg-white p-8 rounded-xl shadow-sm border border-[var(--color-divider)] hover:shadow-md transition-shadow group flex flex-col h-full">
-      <div className="w-14 h-14 bg-[var(--color-background)] rounded-lg flex items-center justify-center text-[var(--color-accent)] mb-6 group-hover:scale-110 transition-transform">
-        {icon}
-      </div>
-      <h3 className="text-xl font-bold mb-3 text-[var(--color-primary)]">{title}</h3>
-      <p className="text-[var(--color-muted)] mb-8 flex-1">{desc}</p>
-      <Link href={href} className="inline-flex items-center gap-2 text-[var(--color-primary)] font-bold hover:text-[var(--color-accent)] transition-colors mt-auto">
-        Learn More <ArrowRight className="w-4 h-4" />
-      </Link>
-    </div>
-  );
-}
+

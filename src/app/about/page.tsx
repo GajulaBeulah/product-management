@@ -38,8 +38,8 @@ export default function AboutPage() {
 
       {/* 2. WHO WE ARE (Matches 3-column "Paradise Village" layout) */}
       <section className="py-24 bg-[var(--color-background)] overflow-hidden">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid lg:grid-cols-3 gap-8 items-center">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* Left Col: Title, Text, Stats, Button */}
             <div className="flex flex-col">
@@ -68,61 +68,30 @@ export default function AboutPage() {
                   <div className="text-sm text-[var(--color-muted)]">Support</div>
                 </div>
               </div>
-              
-              <div>
-                <Link href="/contact" className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-90 inline-flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4" /> Learn More
-                </Link>
-              </div>
             </div>
 
             {/* Middle Col: Staggered Images + Badge */}
-            <div className="relative h-[500px] flex items-center justify-center">
-               <div className="absolute top-0 right-10 w-[60%] h-[35%] rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-                 <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Property" />
-               </div>
-               <div className="absolute top-[30%] left-0 w-[55%] h-[40%] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10">
+            <div className="relative h-[500px] flex gap-4">
+               {/* Left Image */}
+               <div className="w-1/2 h-full rounded-2xl overflow-hidden shadow-lg">
                  <img src="/images/flat.jpg" className="w-full h-full object-cover" alt="Property" />
                </div>
-               <div className="absolute bottom-0 right-10 w-[55%] h-[35%] rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-                 <img src="/images/commercial.jpg" className="w-full h-full object-cover" alt="Property" />
+               
+               {/* Right Stacked Images */}
+               <div className="w-1/2 flex flex-col gap-4">
+                 <div className="h-1/2 rounded-2xl overflow-hidden shadow-lg">
+                   <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Property" />
+                 </div>
+                 <div className="h-1/2 rounded-2xl overflow-hidden shadow-lg">
+                   <img src="/images/commercial.jpg" className="w-full h-full object-cover" alt="Property" />
+                 </div>
                </div>
-               <div className="absolute right-0 top-[40%] bg-[var(--color-primary)] text-white p-4 rounded-xl shadow-2xl z-20 flex flex-col items-center justify-center w-32">
-                 <Shield className="w-8 h-8 mb-2 text-[var(--color-accent)]" />
+
+               {/* Complete Custody Badge */}
+               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-primary)] text-white p-4 rounded-2xl shadow-2xl z-20 flex flex-col items-center justify-center w-32 border-4 border-white">
                  <span className="text-xs font-semibold text-center leading-tight">Complete<br/>Custody</span>
                </div>
             </div>
-
-            {/* Right Col: Title, Text, Bullets */}
-            <div className="flex flex-col pl-0 lg:pl-4">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-[var(--color-primary)] leading-[1.2]">Transparent Asset Custody, Wherever You Are</h2>
-              <p className="text-[var(--color-muted)] mb-8 leading-relaxed">
-                We offer a lifeline for local owners, and crucial support for NRI or distant property owners who cannot be physically present. We handle the day-to-day operations seamlessly.
-              </p>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center gap-3 text-sm font-semibold text-[var(--color-primary)]">
-                  <div className="w-5 h-5 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]"><CheckCircle2 className="w-3 h-3" /></div>
-                  Tenant coordination
-                </li>
-                <li className="flex items-center gap-3 text-sm font-semibold text-[var(--color-primary)]">
-                  <div className="w-5 h-5 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]"><CheckCircle2 className="w-3 h-3" /></div>
-                  Rent collection support
-                </li>
-                <li className="flex items-center gap-3 text-sm font-semibold text-[var(--color-primary)]">
-                  <div className="w-5 h-5 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]"><CheckCircle2 className="w-3 h-3" /></div>
-                  Maintenance coordination
-                </li>
-                <li className="flex items-center gap-3 text-sm font-semibold text-[var(--color-primary)]">
-                  <div className="w-5 h-5 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]"><CheckCircle2 className="w-3 h-3" /></div>
-                  Regular property inspections
-                </li>
-              </ul>
-              <div className="text-xs text-gray-400 mt-auto">
-                <p>* According to local client satisfaction surveys.</p>
-                <p>** Transparent reporting guaranteed via our communication protocols.</p>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
@@ -130,53 +99,27 @@ export default function AboutPage() {
       {/* 4. WHAT WE DO */}
       <section className="py-24 bg-white border-y border-[var(--color-divider)]">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-[var(--color-primary)]">What We Do</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Link href="/services/flat-management" className="block group">
-              <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)] hover:shadow-md transition-shadow h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-[var(--color-accent)] mb-6 shadow-sm"><Key /></div>
-                <h3 className="text-xl font-bold mb-3 text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">1. Flat Management</h3>
-                <p className="text-[var(--color-muted)] mb-6 flex-grow">Tenant coordination, rent collection and maintenance.</p>
-                <span className="text-[var(--color-accent)] font-semibold flex items-center gap-1">Learn More <ArrowRight className="w-4 h-4" /></span>
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            
+            <div className="w-full lg:w-1/2">
+              <div className="rounded-3xl overflow-hidden shadow-sm h-[300px] md:h-[350px] lg:w-[90%] mx-auto">
+                <img src="/images/flat.jpg" className="w-full h-full object-cover" alt="What We Do" />
               </div>
-            </Link>
-            <Link href="/services/apartment-management" className="block group">
-              <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)] hover:shadow-md transition-shadow h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-[var(--color-accent)] mb-6 shadow-sm"><Building2 /></div>
-                <h3 className="text-xl font-bold mb-3 text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">2. Apartment Management</h3>
-                <p className="text-[var(--color-muted)] mb-6 flex-grow">Property upkeep, common-area coordination and vendor management.</p>
-                <span className="text-[var(--color-accent)] font-semibold flex items-center gap-1">Learn More <ArrowRight className="w-4 h-4" /></span>
-              </div>
-            </Link>
-            <Link href="/services/villa-farmhouse" className="block group">
-              <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)] hover:shadow-md transition-shadow h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-[var(--color-accent)] mb-6 shadow-sm"><Home /></div>
-                <h3 className="text-xl font-bold mb-3 text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">3. Villa & Farmhouse</h3>
-                <p className="text-[var(--color-muted)] mb-6 flex-grow">Regular inspections, cleaning, gardening and property care.</p>
-                <span className="text-[var(--color-accent)] font-semibold flex items-center gap-1">Learn More <ArrowRight className="w-4 h-4" /></span>
-              </div>
-            </Link>
-            <Link href="/services/plot-land-management" className="block group">
-              <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)] hover:shadow-md transition-shadow h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-[var(--color-accent)] mb-6 shadow-sm"><Map /></div>
-                <h3 className="text-xl font-bold mb-3 text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">4. Plot / Land Management</h3>
-                <p className="text-[var(--color-muted)] mb-6 flex-grow">Site visits, property monitoring and maintenance coordination.</p>
-                <span className="text-[var(--color-accent)] font-semibold flex items-center gap-1">Learn More <ArrowRight className="w-4 h-4" /></span>
-              </div>
-            </Link>
-            <Link href="/services/commercial-property" className="block group">
-              <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)] hover:shadow-md transition-shadow h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-[var(--color-accent)] mb-6 shadow-sm"><Briefcase /></div>
-                <h3 className="text-xl font-bold mb-3 text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">5. Commercial Property</h3>
-                <p className="text-[var(--color-muted)] mb-6 flex-grow">Tenant coordination, inspections, maintenance and reporting.</p>
-                <span className="text-[var(--color-accent)] font-semibold flex items-center gap-1">Learn More <ArrowRight className="w-4 h-4" /></span>
-              </div>
-            </Link>
-            <div className="bg-[var(--color-background)] p-8 rounded-xl border border-[var(--color-divider)] shadow-sm h-full flex flex-col">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-[var(--color-accent)] mb-6 shadow-sm"><FileText /></div>
-              <h3 className="text-xl font-bold mb-3 text-[var(--color-primary)]">6. Rental & Property Support</h3>
-              <p className="text-[var(--color-muted)] mb-6 flex-grow">Documentation, communication and ongoing owner assistance.</p>
             </div>
+
+            <div className="w-full lg:w-1/2">
+              <div className="text-[var(--color-accent)] font-semibold flex items-center gap-2 text-sm tracking-widest uppercase mb-4">
+                Our Services
+              </div>
+              <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-primary)] mb-6">What We Do</h2>
+              
+              <div className="pt-8 border-t border-[var(--color-divider)]">
+                <p className="text-lg text-[var(--color-muted)] leading-relaxed font-light">
+                  TotalAsset Management provides end-to-end property care, ensuring your residential and commercial assets in Hyderabad are perfectly maintained and highly profitable. From sourcing verified tenants and executing secure rental agreements, to performing regular inspections and prompt maintenance—we handle all the daily operations so you can enjoy your returns with absolute peace of mind.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -184,35 +127,35 @@ export default function AboutPage() {
       {/* 5. OUR APPROACH */}
       <section className="py-24 bg-[var(--color-background)]">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-20 text-center text-[var(--color-primary)]">How We Manage Your Property</h2>
-          <div className="flex flex-col md:flex-row gap-8 justify-between relative">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-20 text-center text-[var(--color-primary)]">How We Manage Your Property</h2>
+          <div className="flex gap-8 justify-between relative overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-6 -mx-4 px-4 md:overflow-visible md:snap-none md:pb-0 md:mx-0 md:px-0 md:flex-row">
             <div className="hidden md:block absolute top-6 left-12 right-12 h-0.5 bg-[var(--color-divider)] z-0"></div>
             
-            <div className="relative z-10 flex flex-col md:items-center flex-1">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">01</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Understand</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We understand your property, requirements and current situation.</p>
             </div>
             
-            <div className="relative z-10 flex flex-col md:items-center flex-1">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">02</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Inspect</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We assess the property's condition and identify immediate needs.</p>
             </div>
 
-            <div className="relative z-10 flex flex-col md:items-center flex-1">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">03</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Coordinate</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We coordinate tenants, vendors, repairs and property-related tasks.</p>
             </div>
 
-            <div className="relative z-10 flex flex-col md:items-center flex-1">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">04</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Report</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We keep owners informed through clear updates and photo/video documentation where appropriate.</p>
             </div>
 
-            <div className="relative z-10 flex flex-col md:items-center flex-1">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">05</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Maintain</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We continue monitoring the property and coordinate ongoing care.</p>
@@ -226,24 +169,27 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             
-            {/* Left Col: Staggered Images + White overlapping box */}
-            <div className="w-full lg:w-1/2 relative h-[450px]">
-              <div className="absolute top-0 left-0 w-[60%] h-[55%] rounded-2xl overflow-hidden shadow-md">
-                <img src="/images/flat.jpg" className="w-full h-full object-cover" alt="Property Care" />
-              </div>
-              <div className="absolute bottom-10 right-0 w-[65%] h-[60%] rounded-2xl overflow-hidden shadow-xl z-10">
-                <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Inspections" />
-              </div>
-              {/* White Box overlapping */}
-              <div className="absolute -bottom-4 left-4 right-16 bg-white p-6 rounded-2xl shadow-2xl z-20 flex justify-around border border-gray-100">
-                <div className="text-center">
-                  <h4 className="font-semibold text-[var(--color-primary)] mb-1 text-sm md:text-base">Transparency</h4>
-                  <p className="text-[10px] md:text-xs text-gray-400">Clear reporting</p>
+            {/* Left Col: Clean Grid Images + White box */}
+            <div className="w-full lg:w-1/2 relative pb-16">
+              <div className="flex gap-4 h-[400px]">
+                <div className="w-1/2 rounded-2xl overflow-hidden shadow-lg">
+                  <img src="/images/flat.jpg" className="w-full h-full object-cover" alt="Property Care" />
                 </div>
-                <div className="w-px bg-gray-200"></div>
-                <div className="text-center">
+                <div className="w-1/2 rounded-2xl overflow-hidden shadow-lg">
+                  <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Inspections" />
+                </div>
+              </div>
+              
+              {/* White Box overlapping */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white py-6 px-8 rounded-2xl shadow-2xl z-20 flex justify-between items-center border border-gray-100 w-[90%] max-w-sm">
+                <div className="text-center flex-1">
+                  <h4 className="font-semibold text-[var(--color-primary)] mb-1 text-sm md:text-base">Transparency</h4>
+                  <p className="text-xs text-gray-400">Clear reporting</p>
+                </div>
+                <div className="w-px h-10 bg-gray-200 mx-4"></div>
+                <div className="text-center flex-1">
                   <h4 className="font-semibold text-[var(--color-primary)] mb-1 text-sm md:text-base">Reliability</h4>
-                  <p className="text-[10px] md:text-xs text-gray-400">On-ground checks</p>
+                  <p className="text-xs text-gray-400">On-ground checks</p>
                 </div>
               </div>
             </div>
@@ -296,7 +242,7 @@ export default function AboutPage() {
       {/* 7. FIDUCIARY TRUST */}
       <section className="py-24 bg-[var(--color-primary)] text-white text-center">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[var(--color-accent)]">Your Property. Our Responsibility.</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-[var(--color-accent)]">Your Property. Our Responsibility.</h2>
           <p className="text-xl text-gray-300 leading-relaxed mb-12">
             TotalAsset acts as a dedicated property custodian and coordinates property-related activities with the owner's interests entirely in mind.
           </p>
@@ -316,7 +262,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[var(--color-primary)]">Complete Transparency</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-[var(--color-primary)]">Complete Transparency</h2>
               <p className="text-lg text-[var(--color-muted)] mb-8">
                 Property owners should always know what is happening with their asset.
               </p>
@@ -378,7 +324,7 @@ export default function AboutPage() {
               <img src="/images/villa.jpg" alt="On Ground Verification" className="object-cover w-full h-full" />
             </div>
             <div className="order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[var(--color-primary)]">Real People. Real Property. On-Ground Presence.</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-[var(--color-primary)]">Real People. Real Property. On-Ground Presence.</h2>
               <p className="text-lg text-[var(--color-muted)] mb-8 leading-relaxed">
                 Property management cannot be handled entirely from a screen. Our approach combines communication with physical property checks and local coordination.
               </p>
@@ -416,7 +362,7 @@ export default function AboutPage() {
       {/* 10. PROPERTY CARE GALLERY */}
       <section className="py-24 bg-[var(--color-background)]">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[var(--color-primary)]">Property Care in Action</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-center text-[var(--color-primary)]">Property Care in Action</h2>
           <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {[
               "/images/flat.jpg", 
@@ -428,7 +374,7 @@ export default function AboutPage() {
               "/images/flat.jpg", 
               "/images/villa.jpg", 
             ].map((img, i) => (
-              <div key={i} className="min-w-[280px] md:min-w-[350px] aspect-[4/3] rounded-xl overflow-hidden shadow-sm shrink-0 snap-center group relative">
+              <div key={i} className="aspect-[4/3] rounded-xl overflow-hidden shadow-sm shrink-0 snap-center group relative h-48 md:h-64">
                 <img src={img} alt={`Gallery ${i}`} className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
               </div>
@@ -440,10 +386,10 @@ export default function AboutPage() {
       {/* 11. REVIEWS */}
       <section className="py-24 bg-white border-y border-[var(--color-divider)]">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-[var(--color-primary)]">What Property Owners Say</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-16 text-center text-[var(--color-primary)]">What Property Owners Say</h2>
+          <div className="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-6 -mx-4 px-4 md:overflow-visible md:snap-none md:pb-0 md:mx-0 md:px-0">
             {[1, 2, 3].map((_, i) => (
-              <div key={i} className="bg-[var(--color-background)] p-8 rounded-xl shadow-sm border border-[var(--color-divider)]">
+              <div key={i} className="bg-[var(--color-background)] p-8 rounded-xl shadow-sm border border-[var(--color-divider)] min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center">
                 <div className="flex text-[#FFB800] mb-6">
                   {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 fill-current" />)}
                 </div>
@@ -463,7 +409,7 @@ export default function AboutPage() {
       {/* 12. FAQ */}
       <section className="py-24 bg-[var(--color-background)]">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[var(--color-primary)]">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-center text-[var(--color-primary)]">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {[
               {
@@ -518,23 +464,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 13. FINAL CTA */}
-      <section className="py-24 bg-[var(--color-primary)] text-white text-center border-t border-white/10">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-4xl font-bold mb-6">Your Property Deserves Professional Care</h2>
-          <p className="text-xl text-gray-300 mb-10 leading-relaxed">
-            Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, TotalAsset can help you manage it with greater confidence and transparency.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-[var(--color-accent)] text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-[var(--color-accent)]/90 transition-colors inline-flex items-center justify-center gap-2">
-              Contact Us
-            </Link>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-white hover:text-[var(--color-primary)] transition-colors inline-flex items-center justify-center gap-2">
-              <MessageCircle className="w-5 h-5" /> WhatsApp Us
-            </a>
+      {/* 13. FINAL CTA (Floating Banner Layout) */}
+      <section className="py-24 bg-[var(--color-background)]">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="bg-[var(--color-primary)] rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-2xl">
+            
+            {/* Background Decorative Circles */}
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-[var(--color-accent)]/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-[var(--color-accent)]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            {/* Left Side Content */}
+            <div className="relative z-10 max-w-2xl text-left">
+              <div className="inline-flex items-center gap-2 bg-white/10 text-white px-3 py-1.5 rounded-full text-sm font-semibold mb-6 border border-white/20">
+                <CheckCircle2 className="w-4 h-4 text-[var(--color-accent)]" /> Professional Care
+              </div>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white leading-[1.1]">
+                Your Property Deserves Professional Care
+              </h2>
+              <p className="text-lg text-gray-300 leading-relaxed font-medium">
+                Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, TotalAsset can help you manage it with greater confidence and transparency.
+              </p>
+            </div>
+
+            {/* Right Side Buttons and Social Proof */}
+            <div className="relative z-10 flex flex-col items-start lg:items-end w-full lg:w-auto shrink-0">
+              <div className="flex flex-col sm:flex-row gap-4 mb-6 w-full sm:w-auto">
+                <Link href="/contact" className="bg-[var(--color-accent)] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-[var(--color-primary)] transition-colors inline-flex items-center justify-center shadow-lg w-full sm:w-auto">
+                  Contact Us <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:border-white transition-colors inline-flex items-center justify-center w-full sm:w-auto">
+                  <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp Us
+                </a>
+              </div>
+              
+              {/* Avatar Group */}
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-300 border-2 border-[var(--color-primary)] overflow-hidden"><img src="/images/flat.jpg" className="w-full h-full object-cover" /></div>
+                  <div className="w-10 h-10 rounded-full bg-gray-400 border-2 border-[var(--color-primary)] overflow-hidden"><img src="/images/villa.jpg" className="w-full h-full object-cover" /></div>
+                  <div className="w-10 h-10 rounded-full bg-gray-500 border-2 border-[var(--color-primary)] overflow-hidden"><img src="/images/apartment.jpg" className="w-full h-full object-cover" /></div>
+                  <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] border-2 border-[var(--color-primary)] flex items-center justify-center text-xs font-bold text-white">+5k</div>
+                </div>
+                <div className="text-sm font-medium text-gray-300">
+                  <span className="text-white font-bold">5/5</span> (500+ properties)
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
     </div>
   );
 }
+

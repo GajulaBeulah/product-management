@@ -12,8 +12,8 @@ export function Navbar() {
   const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent("Hi TotalAsset, I would like to know more about your services.")}`;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[var(--color-divider)] bg-[var(--color-background)]/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm">
+      <div className="container mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-10 h-10 bg-[var(--color-primary)] text-[var(--color-accent)] rounded flex items-center justify-center font-bold text-xl">
             TA

@@ -45,10 +45,10 @@ export default function CommercialPropertyPage() {
         ],
         gallery: [
           "/images/commercial.jpg",
+          "/images/handshake.jpg",
           "/images/inspection.jpg",
           "/images/maintenance.jpg",
-          "/images/agreement.jpg",
-          "/images/handshake.jpg"
+          "/images/agreement.jpg"
         ],
         reviews: [
           {

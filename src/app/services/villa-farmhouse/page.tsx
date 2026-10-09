@@ -45,10 +45,10 @@ export default function VillaFarmhouseManagementPage() {
         ],
         gallery: [
           "/images/villa.jpg",
+          "/images/villa_garden.jpg",
           "/images/inspection.jpg",
-          "/images/maintenance.jpg",
-          "/images/agreement.jpg",
-          "/images/handshake.jpg"
+          "/images/handshake.jpg",
+          "/images/agreement.jpg"
         ],
         reviews: [
           {

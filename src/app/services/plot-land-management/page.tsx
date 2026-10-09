@@ -44,10 +44,10 @@ export default function PlotLandManagementPage() {
         ],
         gallery: [
           "/images/plot.jpg",
-          "/images/inspection.jpg",
-          "/images/maintenance.jpg",
           "/images/agreement.jpg",
-          "/images/handshake.jpg"
+          "/images/handshake.jpg",
+          "/images/inspection.jpg",
+          "/images/maintenance.jpg"
         ],
         reviews: [
           {

@@ -11,9 +11,9 @@ export default function FlatManagementPage() {
         heroImage: "/images/flat.jpg",
         overviewHeading: "Stress-Free Rental Flat Management",
         overviewDescription: [
-          "Our flat management service is designed for property owners who want the financial benefits of renting out their flat without the daily operational headaches.",
-          "Whether you are an NRI or a local investor, we act as your dedicated proxy. We handle tenant sourcing, rigorous KYC verification, and all maintenance requests. You receive rent directly into your account with absolute transparency.",
-          "TotalAsset ensures your property's value is preserved through regular inspections and prompt, photo-verified repairs."
+          "Our flat management service helps property owners enjoy the benefits of rental income without the daily hassles of property management.",
+          "Whether you are an NRI or a local investor, we handle tenant sourcing, KYC verification, and maintenance requests on your behalf. You receive rent directly into your account with complete transparency.",
+          "TotalAsset helps protect your property's value through regular inspections, timely repairs, and photo-verified maintenance updates."
         ],
         overviewImage: "/images/flat.jpg",
         keyInclusions: [

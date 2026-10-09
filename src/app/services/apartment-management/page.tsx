@@ -45,10 +45,10 @@ export default function ApartmentManagementPage() {
         ],
         gallery: [
           "/images/apartment.jpg",
-          "/images/inspection.jpg",
-          "/images/maintenance.jpg",
-          "/images/agreement.jpg",
-          "/images/handshake.jpg"
+          "/images/apt_lobby.jpg",
+          "/images/apt_maintenance.jpg",
+          "/images/handshake.jpg",
+          "/images/agreement.jpg"
         ],
         reviews: [
           {
