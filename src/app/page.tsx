@@ -218,7 +218,7 @@ export default function HomePage() {
             ].map((cat, i) => (
               <Link key={i} href={cat.href} className="vertical-card shrink-0 snap-center group">
                 <div className="w-[200px] h-[280px] rounded-[2rem] bg-white shadow-md group-hover:shadow-xl transition-all overflow-hidden flex flex-col relative border border-gray-100">
-                  <div className="h-[75%] w-full overflow-hidden">
+                  <div className="h-[75%] w-full overflow-hidden relative">
                     <Image fill src={cat.img} alt={cat.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   </div>
                   <div className="h-[25%] flex flex-col items-center justify-center bg-white px-2">
@@ -239,18 +239,18 @@ export default function HomePage() {
             {/* Left Image Collage */}
             <div className="relative h-[500px] flex gap-4">
               <div className="flex flex-col gap-4 w-1/2">
-                <div className="h-2/3 rounded-[3rem] overflow-hidden shadow-lg">
+                <div className="h-2/3 rounded-[3rem] overflow-hidden shadow-lg relative">
                   <Image fill src="/images/villa.jpg" className="w-full h-full object-cover" alt="Workflow 1" />
                 </div>
-                <div className="h-1/3 rounded-[2rem] overflow-hidden shadow-lg">
+                <div className="h-1/3 rounded-[2rem] overflow-hidden shadow-lg relative">
                   <Image fill src="/images/commercial.jpg" className="w-full h-full object-cover" alt="Workflow 2" />
                 </div>
               </div>
               <div className="flex flex-col gap-4 w-1/2 pt-12">
-                <div className="h-1/3 rounded-full overflow-hidden shadow-lg aspect-square">
+                <div className="h-1/3 rounded-full overflow-hidden shadow-lg aspect-square relative">
                   <Image fill src="/images/inspection.jpg" className="w-full h-full object-cover" alt="Workflow 3" />
                 </div>
-                <div className="h-2/3 rounded-[3rem] overflow-hidden shadow-lg">
+                <div className="h-2/3 rounded-[3rem] overflow-hidden shadow-lg relative">
                   <Image fill src="/images/flat.jpg" className="w-full h-full object-cover" alt="Workflow 4" />
                 </div>
               </div>
@@ -365,10 +365,10 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px]">
-            <div className="rounded-[2rem] overflow-hidden shadow-md">
+            <div className="rounded-[2rem] overflow-hidden shadow-md relative">
               <Image fill src="/images/apartment.jpg" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Gachibowli" />
             </div>
-            <div className="rounded-[2rem] overflow-hidden shadow-md">
+            <div className="rounded-[2rem] overflow-hidden shadow-md relative">
               <Image fill src="/images/commercial.jpg" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Jubilee Hills" />
             </div>
             <div className="col-span-2 rounded-[2rem] overflow-hidden shadow-md relative group">
