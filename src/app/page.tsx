@@ -111,7 +111,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="max-w-4xl mx-auto">
             <p className="hero-text text-xl md:text-2xl font-serif italic text-cyan-400 mb-4 tracking-wide">
-              Secure unforgettable moments with us
+              Comprehensive property management in Hyderabad
             </p>
             <h1 className="hero-text text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 drop-shadow-lg">
               Your Assets, Our Care
@@ -232,7 +232,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. Fiduciary Workflow (Plan Your Trip) */}
+      {/* 3. Fiduciary Workflow */}
       <section className="py-24 bg-white" id="workflow">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid md:grid-cols-2 gap-16 items-center">
