@@ -388,7 +388,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-primary)]">What Clients Say About Us</h2>
           </div>
 
-          <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory gap-6 md:gap-8 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 -mx-4 px-4 md:mx-0 md:px-0">
             {reviewsData.map((review, i) => (
               <div key={i} className="w-[85vw] md:w-[350px] shrink-0 snap-center bg-white rounded-[2rem] shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col h-full border border-gray-100">
                 <div className="p-8 flex-1">
