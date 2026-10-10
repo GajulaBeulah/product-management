@@ -274,7 +274,7 @@ export default function HomePage() {
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-lg">{item.title}</h4>
+                      <h3 className="font-bold text-gray-900 text-lg">{item.title}</h3>
                       <p className="text-gray-500 text-sm mt-1">{item.desc}</p>
                     </div>
                   </div>
@@ -405,7 +405,7 @@ export default function HomePage() {
                   {review.initials}
                 </div>
                 <div>
-                  <h4 className="font-bold text-[var(--color-primary)] text-sm">{review.name}</h4>
+                  <h3 className="font-bold text-[var(--color-primary)] text-sm">{review.name}</h3>
                   <p className="text-xs text-cyan-700">{review.role}</p>
                 </div>
               </div>

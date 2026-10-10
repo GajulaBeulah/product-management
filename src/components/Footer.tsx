@@ -17,10 +17,10 @@ export function Footer() {
           <p className="text-gray-400 text-sm leading-relaxed mb-6">
             {siteConfig.brand.tagline}
           </p>
-          <div className="text-gray-400 text-sm">
+          <address className="text-gray-400 text-sm not-italic">
             <p>{siteConfig.contact.officeAddress}</p>
             <p>{siteConfig.contact.workingHours}</p>
-          </div>
+          </address>
         </div>
 
         <div>
@@ -51,11 +51,20 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition-colors">
-                {siteConfig.contact.email}
-              </a>
+              <Link href="/contact" className="hover:text-white transition-colors">
+                {siteConfig.contact.email.replace('@', ' (at) ')}
+              </Link>
             </li>
           </ul>
+          
+          {/* SEO Hidden Social Links */}
+          <div className="hidden">
+            <a href="https://facebook.com/totalasset">Facebook</a>
+            <a href="https://twitter.com/totalasset">Twitter</a>
+            <a href="https://instagram.com/totalasset">Instagram</a>
+            <a href="https://linkedin.com/company/totalasset">LinkedIn</a>
+            <a href="https://youtube.com/@totalasset">YouTube</a>
+          </div>
         </div>
       </div>
       

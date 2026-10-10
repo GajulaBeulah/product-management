@@ -5,6 +5,7 @@ export interface SiteConfig {
     description: string;
     foundedYear: number;
     city: string;
+    url: string;
   };
   contact: {
     phone: string;
@@ -20,10 +21,11 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   brand: {
     name: "TotalAsset Management",
-    tagline: "Complete Custody for Your Plots, Luxury Villas & Commercial Assets in Hyderabad.",
-    description: "Institutional asset management and estate custody benchmarks.",
+    tagline: "Property Management Hyderabad",
+    description: "TotalAsset provides professional property management, absolute transparency, strict tenant KYC, and photo-verified repair estimates for assets in Hyderabad.",
     foundedYear: 2026,
     city: "Hyderabad, Telangana",
+    url: "https://product-management-gold-ten.vercel.app",
   },
   contact: {
     phone: "+919876543210",
