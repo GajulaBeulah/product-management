@@ -368,11 +368,11 @@ export default function AboutPage() {
               "/images/flat.jpg", 
               "/images/villa.jpg", 
               "/images/commercial.jpg",
-              "/images/flat.jpg", 
-              "/images/villa.jpg", 
-              "/images/commercial.jpg",
-              "/images/flat.jpg", 
-              "/images/villa.jpg", 
+              "/images/apartment.jpg", 
+              "/images/maintenance.jpg", 
+              "/images/inspection.jpg",
+              "/images/agreement.jpg", 
+              "/images/plot.jpg", 
             ].map((img, i) => (
               <div key={i} className="aspect-[4/3] rounded-xl overflow-hidden shadow-sm shrink-0 snap-center group relative h-48 md:h-64">
                 <img src={img} alt={`Gallery ${i}`} className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" />
