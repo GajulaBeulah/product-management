@@ -64,7 +64,7 @@ export function Footer() {
           &copy; {siteConfig.brand.foundedYear} {siteConfig.brand.name}. All rights reserved.
         </div>
         <div>
-          Designed by <a href="https://edonesolutions.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-cyan-400 transition-colors font-medium">eDone Solutions</a>
+          Designed by <a href="https://www.edonesolution.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-cyan-400 transition-colors font-medium">eDone Solutions</a>
         </div>
       </div>
     </footer>
