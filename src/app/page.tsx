@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -104,7 +105,7 @@ export default function HomePage() {
     <div ref={container} className="bg-white text-gray-800 font-sans">
       <section className="relative pt-24 pb-32 min-h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Background" />
+          <Image fill src="/images/villa.jpg" className="w-full h-full object-cover" alt="Background" />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -218,7 +219,7 @@ export default function HomePage() {
               <Link key={i} href={cat.href} className="vertical-card shrink-0 snap-center group">
                 <div className="w-[200px] h-[280px] rounded-[2rem] bg-white shadow-md group-hover:shadow-xl transition-all overflow-hidden flex flex-col relative border border-gray-100">
                   <div className="h-[75%] w-full overflow-hidden">
-                    <img src={cat.img} alt={cat.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <Image fill src={cat.img} alt={cat.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   </div>
                   <div className="h-[25%] flex flex-col items-center justify-center bg-white px-2">
                     <h3 className="font-bold text-gray-900">{cat.title}</h3>
@@ -239,18 +240,18 @@ export default function HomePage() {
             <div className="relative h-[500px] flex gap-4">
               <div className="flex flex-col gap-4 w-1/2">
                 <div className="h-2/3 rounded-[3rem] overflow-hidden shadow-lg">
-                  <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Workflow 1" />
+                  <Image fill src="/images/villa.jpg" className="w-full h-full object-cover" alt="Workflow 1" />
                 </div>
                 <div className="h-1/3 rounded-[2rem] overflow-hidden shadow-lg">
-                  <img src="/images/commercial.jpg" className="w-full h-full object-cover" alt="Workflow 2" />
+                  <Image fill src="/images/commercial.jpg" className="w-full h-full object-cover" alt="Workflow 2" />
                 </div>
               </div>
               <div className="flex flex-col gap-4 w-1/2 pt-12">
                 <div className="h-1/3 rounded-full overflow-hidden shadow-lg aspect-square">
-                  <img src="/images/inspection.jpg" className="w-full h-full object-cover" alt="Workflow 3" />
+                  <Image fill src="/images/inspection.jpg" className="w-full h-full object-cover" alt="Workflow 3" />
                 </div>
                 <div className="h-2/3 rounded-[3rem] overflow-hidden shadow-lg">
-                  <img src="/images/flat.jpg" className="w-full h-full object-cover" alt="Workflow 4" />
+                  <Image fill src="/images/flat.jpg" className="w-full h-full object-cover" alt="Workflow 4" />
                 </div>
               </div>
             </div>
@@ -297,7 +298,7 @@ export default function HomePage() {
             
             {/* Card 1 */}
             <div className="relative rounded-[2rem] overflow-hidden group h-[450px] flex flex-col justify-end w-[85vw] md:w-auto shrink-0 snap-center">
-              <img src="/images/flat.jpg" alt="Verified Repairs" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
+              <Image fill src="/images/flat.jpg" alt="Verified Repairs" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
               
               <div className="relative z-20 p-6 flex flex-col gap-3">
@@ -311,7 +312,7 @@ export default function HomePage() {
 
             {/* Card 2 */}
             <div className="relative rounded-[2rem] overflow-hidden group h-[450px] flex flex-col justify-end w-[85vw] md:w-auto shrink-0 snap-center">
-              <img src="/images/apartment.jpg" alt="Strict Tenant KYC" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
+              <Image fill src="/images/apartment.jpg" alt="Strict Tenant KYC" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
               
               <div className="relative z-20 p-6 flex flex-col gap-3">
@@ -325,7 +326,7 @@ export default function HomePage() {
 
             {/* Card 3 */}
             <div className="relative rounded-[2rem] overflow-hidden group h-[450px] flex flex-col justify-end w-[85vw] md:w-auto shrink-0 snap-center">
-              <img src="/images/commercial.jpg" alt="Border-Free Management" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
+              <Image fill src="/images/commercial.jpg" alt="Border-Free Management" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
               
               <div className="relative z-20 p-6 flex flex-col gap-3">
@@ -339,7 +340,7 @@ export default function HomePage() {
 
             {/* Card 4 */}
             <div className="relative rounded-[2rem] overflow-hidden group h-[450px] flex flex-col justify-end w-[85vw] md:w-auto shrink-0 snap-center">
-              <img src="/images/plot.jpg" alt="Zero Escrow" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
+              <Image fill src="/images/plot.jpg" alt="Zero Escrow" className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
               
               <div className="relative z-20 p-6 flex flex-col gap-3">
@@ -365,13 +366,13 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px]">
             <div className="rounded-[2rem] overflow-hidden shadow-md">
-              <img src="/images/apartment.jpg" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Gachibowli" />
+              <Image fill src="/images/apartment.jpg" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Gachibowli" />
             </div>
             <div className="rounded-[2rem] overflow-hidden shadow-md">
-              <img src="/images/commercial.jpg" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Jubilee Hills" />
+              <Image fill src="/images/commercial.jpg" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Jubilee Hills" />
             </div>
             <div className="col-span-2 rounded-[2rem] overflow-hidden shadow-md relative group">
-              <img src="/images/villa.jpg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Shankarpally" />
+              <Image fill src="/images/villa.jpg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Shankarpally" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
                 <h3 className="text-white text-2xl font-bold">Premium IT Corridors & Villa Belts</h3>
               </div>
@@ -486,9 +487,9 @@ export default function HomePage() {
               
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
-                  <img src="/images/flat.jpg" alt="Property" className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-30 relative" />
-                  <img src="/images/apartment.jpg" alt="Property" className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-20 relative" />
-                  <img src="/images/villa.jpg" alt="Property" className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-10 relative" />
+                  <Image src="/images/flat.jpg" alt="Property" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-30 relative" />
+                  <Image src="/images/apartment.jpg" alt="Property" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-20 relative" />
+                  <Image src="/images/villa.jpg" alt="Property" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] object-cover z-10 relative" />
                   <div className="w-10 h-10 rounded-full border-2 border-[var(--color-primary)] bg-cyan-500 flex items-center justify-center text-xs font-bold text-white z-0 relative">
                     +5k
                   </div>
