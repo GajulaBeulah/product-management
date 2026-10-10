@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { siteConfig } from "@/site-config";
 import {
   ArrowRight, CheckCircle2, ChevronDown,
@@ -110,9 +111,9 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
               <div className="space-y-4 text-gray-500 leading-relaxed mb-8">
                 {data.overviewDescription.map((p, i) => <p key={i}>{p}</p>)}
               </div>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex bg-cyan-500 text-white px-8 py-3 rounded-full font-bold hover:bg-cyan-400 transition-colors items-center shadow-md">
+              <Link href="/about" className="inline-flex bg-cyan-500 text-white px-8 py-3 rounded-full font-bold hover:bg-cyan-400 transition-colors items-center shadow-md">
                 Read More <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
+              </Link>
 
 
             </div>
