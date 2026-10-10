@@ -164,7 +164,7 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
 
           <div className="flex overflow-x-auto pb-8 -mx-4 px-4 snap-x snap-mandatory gap-6 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none hide-scrollbar">
             {data.reviews.map((review, i) => (
-              <div key={i} className="min-w-[85vw] md:min-w-0 shrink-0 snap-center md:shrink md:snap-none bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col h-full">
+              <div key={i} className="w-[85vw] md:w-auto shrink-0 snap-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col h-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-cyan-500 text-white flex items-center justify-center font-semibold shrink-0 shadow-sm">
                     {review.name.charAt(0)}

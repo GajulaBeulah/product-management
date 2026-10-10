@@ -131,31 +131,31 @@ export default function AboutPage() {
           <div className="flex gap-8 justify-between relative overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-6 -mx-4 px-4 md:overflow-visible md:snap-none md:pb-0 md:mx-0 md:px-0 md:flex-row">
             <div className="hidden md:block absolute top-6 left-12 right-12 h-0.5 bg-[var(--color-divider)] z-0"></div>
             
-            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 w-[75vw] sm:w-[60vw] md:w-auto shrink-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">01</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Understand</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We understand your property, requirements and current situation.</p>
             </div>
             
-            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 w-[75vw] sm:w-[60vw] md:w-auto shrink-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">02</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Inspect</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We assess the property's condition and identify immediate needs.</p>
             </div>
 
-            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 w-[75vw] sm:w-[60vw] md:w-auto shrink-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">03</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Coordinate</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We coordinate tenants, vendors, repairs and property-related tasks.</p>
             </div>
 
-            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 w-[75vw] sm:w-[60vw] md:w-auto shrink-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">04</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Report</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We keep owners informed through clear updates and photo/video documentation where appropriate.</p>
             </div>
 
-            <div className="relative z-10 flex flex-col md:items-center flex-1 min-w-[75vw] sm:min-w-[60vw] md:min-w-0 snap-center">
+            <div className="relative z-10 flex flex-col md:items-center flex-1 w-[75vw] sm:w-[60vw] md:w-auto shrink-0 snap-center">
               <div className="w-12 h-12 bg-[var(--color-accent)] text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 shadow-md shrink-0">05</div>
               <h3 className="text-lg font-bold mb-2 text-[var(--color-primary)] md:text-center">Maintain</h3>
               <p className="text-[var(--color-muted)] md:text-center text-sm">We continue monitoring the property and coordinate ongoing care.</p>
@@ -389,7 +389,7 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-semibold mb-16 text-center text-[var(--color-primary)]">What Property Owners Say</h2>
           <div className="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-6 -mx-4 px-4 md:overflow-visible md:snap-none md:pb-0 md:mx-0 md:px-0">
             {[1, 2, 3].map((_, i) => (
-              <div key={i} className="bg-[var(--color-background)] p-8 rounded-xl shadow-sm border border-[var(--color-divider)] min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center">
+              <div key={i} className="bg-[var(--color-background)] p-8 rounded-xl shadow-sm border border-[var(--color-divider)] w-[85vw] sm:w-[60vw] md:w-auto shrink-0 snap-center">
                 <div className="flex text-[#FFB800] mb-6">
                   {[...Array(5)].map((_, j) => <Star key={j} className="w-5 h-5 fill-current" />)}
                 </div>
