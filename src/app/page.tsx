@@ -105,7 +105,7 @@ export default function HomePage() {
     <div ref={container} className="bg-white text-gray-800 font-sans">
       <section className="relative pt-24 pb-32 min-h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <Image fill src="/images/villa.jpg" className="w-full h-full object-cover" alt="Background" />
+          <img src="/images/villa.jpg" className="w-full h-full object-cover" alt="Background" />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
