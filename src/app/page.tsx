@@ -388,27 +388,29 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-semibold text-[var(--color-primary)]">What Clients Say About Us</h2>
           </div>
 
-          <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 -mx-4 px-4 md:mx-0 md:px-0">
-            {reviewsData.map((review, i) => (
-              <div key={i} className="w-[85vw] md:w-[350px] shrink-0 snap-center bg-white rounded-[2rem] shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col h-full border border-gray-100">
-                <div className="p-8 flex-1">
-                  <Quote className="w-8 h-8 text-cyan-200 mb-4" />
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {review.text}
-                  </p>
+        </div>
+
+        {/* Full-width slider */}
+        <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 px-4 md:px-12 xl:px-[calc((100vw-72rem)/2+2rem)] w-full">
+          {reviewsData.map((review, i) => (
+            <div key={i} className="w-[85vw] md:w-[400px] shrink-0 snap-center bg-white rounded-[2rem] shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col h-full border border-gray-100">
+              <div className="p-8 flex-1">
+                <Quote className="w-8 h-8 text-cyan-200 mb-4" />
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  {review.text}
+                </p>
+              </div>
+              <div className="bg-cyan-50 p-6 flex items-center gap-4 border-t border-cyan-100 mt-auto">
+                <div className="w-12 h-12 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold shrink-0">
+                  {review.initials}
                 </div>
-                <div className="bg-cyan-50 p-6 flex items-center gap-4 border-t border-cyan-100 mt-auto">
-                  <div className="w-12 h-12 bg-cyan-500 text-white rounded-full flex items-center justify-center font-bold shrink-0">
-                    {review.initials}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-[var(--color-primary)] text-sm">{review.name}</h4>
-                    <p className="text-xs text-cyan-700">{review.role}</p>
-                  </div>
+                <div>
+                  <h4 className="font-bold text-[var(--color-primary)] text-sm">{review.name}</h4>
+                  <p className="text-xs text-cyan-700">{review.role}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
