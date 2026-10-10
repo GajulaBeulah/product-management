@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { siteConfig } from "@/site-config";
 import { MapPin, Phone, Mail, MessageCircle, Send, ArrowRight } from "lucide-react";
 
@@ -46,7 +47,7 @@ export default function ContactPage() {
             Get in touch with our team to discuss how we can help manage and protect your valuable assets in Hyderabad.
           </p>
           <div className="text-[var(--color-accent)] font-semibold flex items-center gap-2 text-sm tracking-widest uppercase">
-            Home <span className="text-white">&gt;&gt;</span> Contact
+            <Link href="/" className="hover:text-white transition-colors">Home</Link> <span className="text-white">&gt;&gt;</span> <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           </div>
         </div>
       </section>

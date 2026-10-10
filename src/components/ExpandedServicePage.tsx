@@ -5,8 +5,9 @@ import Link from "next/link";
 import { siteConfig } from "@/site-config";
 import {
   ArrowRight, CheckCircle2, ChevronDown,
-  MessageCircle, Phone, Star, ShieldCheck, MapPin, Wrench, FileText
+  Phone, Star, ShieldCheck, MapPin, Wrench, FileText
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export interface ServiceData {
   id: string;
@@ -61,9 +62,6 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
                   Inquire Now
                 </a>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white font-medium hover:text-[var(--color-accent)] transition-colors group">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[var(--color-primary)] shadow-lg group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors">
-                    <svg className="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" fillRule="evenodd"></path></svg>
-                  </div>
                   WhatsApp Us
                 </a>
               </div>
@@ -217,22 +215,33 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
             <div className="w-16 h-1 bg-[var(--color-accent)] mx-auto mt-6"></div>
           </div>
           <div className="space-y-4">
-            {data.faq.map((faq, i) => (
-              <div className="border border-[var(--color-divider)] rounded-2xl overflow-hidden shadow-sm" key={i}>
-                <button
-                  className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition-colors text-left"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+            {data.faq.map((faq, i) => {
+              const isOpen = openFaq === i;
+              return (
+                <div
+                  key={i}
+                  className={`bg-white rounded-[2rem] shadow-sm overflow-hidden transition-all duration-300 border ${isOpen ? 'border-cyan-500 ring-2 ring-cyan-100' : 'border-gray-200 hover:border-cyan-300'}`}
                 >
-                  <span className="font-semibold text-lg text-[var(--color-primary)] pr-8">{faq.question}</span>
-                  <ChevronDown className={`w-5 h-5 text-[var(--color-accent)] shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                {openFaq === i && (
-                  <div className="p-6 pt-2 bg-white">
-                    <p className="text-[var(--color-muted)] leading-relaxed">{faq.answer}</p>
+                  <div
+                    className="flex items-center justify-between p-6 cursor-pointer"
+                    onClick={() => setOpenFaq(isOpen ? null : i)}
+                  >
+                    <h3 className="text-lg font-bold text-gray-900 pr-8">
+                      {faq.question}
+                    </h3>
+                    <div className={`w-10 h-10 bg-cyan-50 text-cyan-600 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-cyan-500 text-white' : ''}`}>
+                      <ChevronDown className="w-5 h-5" />
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+
+                  <div
+                    className={`px-6 text-gray-600 leading-relaxed transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 pb-0 opacity-0'}`}
+                  >
+                    {faq.answer}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -263,7 +272,7 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
                   Contact Us <ArrowRight className="w-5 h-5" />
                 </a>
                 <a href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
-                  <MessageCircle className="w-5 h-5" /> WhatsApp Us
+                  WhatsApp Us
                 </a>
               </div>
               

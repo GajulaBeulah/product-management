@@ -10,8 +10,9 @@ import { siteConfig } from "@/site-config";
 import {
   Building, Home, Key, MapPin, Search, ShieldCheck,
   ChevronDown, ArrowRight, CheckCircle2, ChevronRight, Briefcase,
-  MessageCircle, Phone, Star, Quote, Camera, UserCheck, Globe, Banknote
+  Phone, Star, Quote, Camera, UserCheck, Globe, Banknote
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -258,17 +259,17 @@ export default function HomePage() {
 
             {/* Right Content */}
             <div>
-              <p className="font-serif italic text-2xl text-cyan-500 mb-2">Let's Secure Together</p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Plan Your Management With Us</h2>
+              <p className="font-serif italic text-2xl text-cyan-500 mb-2">How We Work</p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Getting Started is Simple</h2>
               <p className="text-gray-600 mb-10 leading-relaxed">
-                There are many variations of property management available, but the majority suffer from hidden costs. We provide absolute transparency through injected professionalism.
+                Property management shouldn't be stressful. We believe in clear communication, no hidden fees, and taking care of your home exactly the way you would. Here's how we kick things off.
               </p>
 
               <div className="space-y-8">
                 {[
-                  { title: "Exclusive Proposal", desc: "Tailored service agreement & flat-fee quote." },
-                  { title: "Professional Guide", desc: "A dedicated manager assigned as your single contact." },
-                  { title: "Secure Handover", desc: "Complete custody handover & key protocol." }
+                  { title: "Custom Proposal", desc: "A clear, flat-fee plan made just for your property." },
+                  { title: "Your Go-To Manager", desc: "One dedicated person to call whenever you need anything." },
+                  { title: "Seamless Handover", desc: "We take the keys, and you take a breather." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5 items-start group">
                     <div className="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
@@ -302,9 +303,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
               
               <div className="relative z-20 p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 shadow-sm">
-                  <Camera className="w-5 h-5" />
-                </div>
+
                 <h3 className="text-2xl font-bold text-white leading-tight">Verified<br/>Repairs</h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">Photo-verified repair estimates prior to any maintenance execution.</p>
               </div>
@@ -316,9 +315,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
               
               <div className="relative z-20 p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 shadow-sm">
-                  <UserCheck className="w-5 h-5" />
-                </div>
+
                 <h3 className="text-2xl font-bold text-white leading-tight">Strict<br/>Tenant KYC</h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">Strict tenant KYC (police verification + employment verification).</p>
               </div>
@@ -330,9 +327,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
               
               <div className="relative z-20 p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 shadow-sm">
-                  <Globe className="w-5 h-5" />
-                </div>
+
                 <h3 className="text-2xl font-bold text-white leading-tight">Border-Free<br/>Management</h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">Dedicated support designed specifically to eliminate timezone friction for NRI property owners.</p>
               </div>
@@ -344,9 +339,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
               
               <div className="relative z-20 p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white mb-2 shadow-sm">
-                  <Banknote className="w-5 h-5" />
-                </div>
+
                 <h3 className="text-2xl font-bold text-white leading-tight">Zero<br/>Escrow</h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">Zero funds held in escrow: rent transferred directly to owner's designated account.</p>
               </div>
@@ -373,9 +366,7 @@ export default function HomePage() {
             </div>
             <div className="col-span-2 rounded-[2rem] overflow-hidden shadow-md relative group">
               <Image fill src="/images/villa.jpg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Shankarpally" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
-                <h3 className="text-white text-2xl font-bold">Premium IT Corridors & Villa Belts</h3>
-              </div>
+
             </div>
           </div>
         </div>
@@ -481,7 +472,7 @@ export default function HomePage() {
                   Contact Us <ArrowRight className="w-5 h-5" />
                 </a>
                 <a href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} className="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
-                  <MessageCircle className="w-5 h-5" /> WhatsApp Us
+                  WhatsApp Us
                 </a>
               </div>
               

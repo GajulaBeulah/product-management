@@ -6,9 +6,10 @@ import Link from "next/link";
 import { siteConfig } from "@/site-config";
 import { 
   Building2, Users, Wrench, Shield, ClipboardCheck, MessageSquare, 
-  MapPin, FileText, CheckCircle2, ChevronDown, MessageCircle, Phone,
+  MapPin, FileText, CheckCircle2, ChevronDown, Phone,
   ArrowRight, ShieldCheck, Home, Leaf, Map, Briefcase, Key, Star, Camera
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function AboutPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -28,10 +29,10 @@ export default function AboutPage() {
             About Us
           </h1>
           <p className="max-w-2xl text-gray-200 mb-6 px-4">
-            TotalAsset Management provides reliable on-ground property management and asset care for owners who want their Hyderabad properties looked after professionally.
+            We are your trusted local team in Hyderabad, taking care of your properties just like you would—so you can relax, no matter where you are in the world.
           </p>
           <div className="text-[var(--color-accent)] font-semibold flex items-center gap-2 text-sm tracking-widest uppercase">
-            Home <span className="text-white">&gt;&gt;</span> About Us
+            <Link href="/" className="hover:text-white transition-colors">Home</Link> <span className="text-white">&gt;&gt;</span> <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
           </div>
         </div>
       </section>
@@ -39,18 +40,18 @@ export default function AboutPage() {
       {/* 2. WHO WE ARE (Matches 3-column "Paradise Village" layout) */}
       <section className="py-24 bg-[var(--color-background)] overflow-hidden">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
             
             {/* Left Col: Title, Text, Stats, Button */}
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-center h-full">
               <div className="text-[var(--color-accent)] font-semibold uppercase tracking-wider text-sm mb-2">TotalAsset Management</div>
-              <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-[var(--color-primary)] leading-[1.2]">Property Management You Can Trust</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-[var(--color-primary)] leading-[1.2]">A team you can actually trust with your keys.</h2>
               <p className="text-[var(--color-muted)] mb-8 leading-relaxed">
-                We are a premier Hyderabad-based property and asset management firm. We specialize in providing reliable on-ground property care and custody for residential and commercial real estate.
+                We're a dedicated property management team based right here in Hyderabad. Whether you own a family home, a commercial space, or a vacant plot, we treat your property like it's our own—handling all the everyday headaches so you don't have to.
               </p>
               
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+              <div className="grid grid-cols-3 gap-y-6 gap-x-4 mb-8">
                 <div>
                   <div className="text-3xl font-semibold text-[var(--color-primary)]">500+</div>
                   <div className="text-sm text-[var(--color-muted)]">Properties Managed</div>
@@ -63,15 +64,11 @@ export default function AboutPage() {
                   <div className="text-3xl font-semibold text-[var(--color-primary)]">Top 10</div>
                   <div className="text-sm text-[var(--color-muted)]">Local Firms*</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-semibold text-[var(--color-primary)]">24/7</div>
-                  <div className="text-sm text-[var(--color-muted)]">Support</div>
-                </div>
               </div>
             </div>
 
             {/* Middle Col: Staggered Images + Badge */}
-            <div className="relative h-[500px] flex gap-4">
+            <div className="relative h-full min-h-[400px] flex gap-4">
                {/* Left Image */}
                <div className="w-1/2 h-full rounded-2xl overflow-hidden shadow-lg">
                  <img src="/images/flat.jpg" className="w-full h-full object-cover" alt="Property" />
@@ -444,22 +441,33 @@ export default function AboutPage() {
                 q: "How can I get started?",
                 a: "Simply reach out via Contact Us or WhatsApp. We will discuss your property details and arrange an initial assessment."
               }
-            ].map((faq, i) => (
-              <div key={i} className="border border-[var(--color-divider)] rounded-xl overflow-hidden bg-white shadow-sm">
-                <button 
-                  className="w-full flex items-center justify-between p-6 hover:bg-[var(--color-background)] transition-colors text-left"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+            ].map((faq, i) => {
+              const isOpen = openFaq === i;
+              return (
+                <div
+                  key={i}
+                  className={`bg-white rounded-[2rem] shadow-sm overflow-hidden transition-all duration-300 border ${isOpen ? 'border-cyan-500 ring-2 ring-cyan-100' : 'border-gray-200 hover:border-cyan-300'}`}
                 >
-                  <span className="font-bold text-lg text-[var(--color-primary)] pr-8">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-[var(--color-accent)] shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                {openFaq === i && (
-                  <div className="p-6 pt-2 bg-white">
-                    <p className="text-[var(--color-muted)] leading-relaxed">{faq.a}</p>
+                  <div
+                    className="flex items-center justify-between p-6 cursor-pointer"
+                    onClick={() => setOpenFaq(isOpen ? null : i)}
+                  >
+                    <h3 className="text-lg font-bold text-gray-900 pr-8">
+                      {faq.q}
+                    </h3>
+                    <div className={`w-10 h-10 bg-cyan-50 text-cyan-600 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-cyan-500 text-white' : ''}`}>
+                      <ChevronDown className="w-5 h-5" />
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+
+                  <div
+                    className={`px-6 text-gray-600 leading-relaxed transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 pb-0 opacity-0'}`}
+                  >
+                    {faq.a}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -493,7 +501,7 @@ export default function AboutPage() {
                   Contact Us <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:border-white transition-colors inline-flex items-center justify-center w-full sm:w-auto">
-                  <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp Us
+                  WhatsApp Us
                 </a>
               </div>
               

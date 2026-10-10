@@ -33,7 +33,7 @@ export const siteConfig: SiteConfig = {
     whatsappNumber: "919876543210",
     email: "contact@totalasset.com",
     officeAddress: "Hyderabad, Telangana",
-    workingHours: "Mon-Sat: 9AM - 6PM",
+    workingHours: "24/7",
   },
   localities: [
     "Gachibowli", "Kondapur", "Tellapur", "Shankarpally", "Kokapet", "Shamshabad",
