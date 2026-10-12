@@ -102,7 +102,7 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
             {/* Right Side Text */}
             <div className="w-full lg:w-1/2">
               <div className="flex items-center gap-4 mb-4">
-                <h4 className="text-gray-600 font-bold tracking-wider text-sm uppercase">About Us</h4>
+                <span className="text-gray-600 font-bold tracking-wider text-sm uppercase">About Us</span>
                 <div className="w-12 h-[2px] bg-cyan-500"></div>
               </div>
               <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-gray-900 leading-[1.2]">{data.overviewHeading}</h2>
@@ -169,7 +169,7 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
                     {review.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--color-primary)] text-sm">{review.name}</h4>
+                    <h3 className="font-semibold text-[var(--color-primary)] text-sm">{review.name}</h3>
                     <div className="flex text-[#FFB800] mt-1">
                       {[...Array(5)].map((_, j) => <Star key={j} className="w-3 h-3 fill-current" />)}
                     </div>

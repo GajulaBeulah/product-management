@@ -74,7 +74,7 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--color-primary)] text-lg mb-1">Call Us</h4>
+                    <h3 className="font-semibold text-[var(--color-primary)] text-lg mb-1">Call Us</h3>
                     <a href={`tel:${siteConfig.contact.phone}`} className="text-[var(--color-muted)] hover:text-[var(--color-accent)] font-medium transition-colors">
                       {siteConfig.contact.phoneDisplay}
                     </a>
@@ -87,7 +87,7 @@ export default function ContactPage() {
                     <MessageCircle className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--color-primary)] text-lg mb-1">WhatsApp</h4>
+                    <h3 className="font-semibold text-[var(--color-primary)] text-lg mb-1">WhatsApp</h3>
                     <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted)] hover:text-[var(--color-accent)] font-medium transition-colors">
                       Chat with our team
                     </a>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--color-primary)] text-lg mb-1">Email Us</h4>
+                    <h3 className="font-semibold text-[var(--color-primary)] text-lg mb-1">Email Us</h3>
                     <a href={`mailto:${siteConfig.contact.email}`} className="text-[var(--color-muted)] hover:text-[var(--color-accent)] font-medium transition-colors">
                       {siteConfig.contact.email}
                     </a>
@@ -113,7 +113,7 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--color-primary)] text-lg mb-1">Office Location</h4>
+                    <h3 className="font-semibold text-[var(--color-primary)] text-lg mb-1">Office Location</h3>
                     <p className="text-[var(--color-muted)] font-medium">
                       {siteConfig.contact.officeAddress}
                     </p>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-4">
                       <Send className="w-8 h-8" />
                     </div>
-                    <h4 className="text-xl font-semibold mb-2">Message Sent Successfully!</h4>
+                    <h3 className="text-xl font-semibold mb-2">Message Sent Successfully!</h3>
                     <p className="text-green-700">Thank you for reaching out to {siteConfig.brand.name}. Our team will contact you within 24 hours.</p>
                     <button 
                       onClick={() => setIsSubmitted(false)}

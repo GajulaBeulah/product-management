@@ -180,12 +180,12 @@ export default function AboutPage() {
               {/* White Box overlapping */}
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white py-6 px-8 rounded-2xl shadow-2xl z-20 flex justify-between items-center border border-gray-100 w-[90%] max-w-sm">
                 <div className="text-center flex-1">
-                  <h4 className="font-semibold text-[var(--color-primary)] mb-1 text-sm md:text-base">Transparency</h4>
+                  <h3 className="font-semibold text-[var(--color-primary)] mb-1 text-sm md:text-base">Transparency</h3>
                   <p className="text-xs text-gray-400">Clear reporting</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200 mx-4"></div>
                 <div className="text-center flex-1">
-                  <h4 className="font-semibold text-[var(--color-primary)] mb-1 text-sm md:text-base">Reliability</h4>
+                  <h3 className="font-semibold text-[var(--color-primary)] mb-1 text-sm md:text-base">Reliability</h3>
                   <p className="text-xs text-gray-400">On-ground checks</p>
                 </div>
               </div>
@@ -203,7 +203,7 @@ export default function AboutPage() {
                     <MapPin className="w-6 h-6 text-[var(--color-accent)]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--color-primary)] mb-2 text-lg">Local On-Ground Presence</h4>
+                    <h3 className="font-semibold text-[var(--color-primary)] mb-2 text-lg">Local On-Ground Presence</h3>
                     <p className="text-sm text-[var(--color-muted)] leading-relaxed">We are physically present in Hyderabad to check on your asset and handle local vendor coordination.</p>
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export default function AboutPage() {
                     <ShieldCheck className="w-6 h-6 text-[var(--color-accent)]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--color-primary)] mb-2 text-lg">Tenant KYC & Verification</h4>
+                    <h3 className="font-semibold text-[var(--color-primary)] mb-2 text-lg">Tenant KYC & Verification</h3>
                     <p className="text-sm text-[var(--color-muted)] leading-relaxed">Strict background checks to ensure reliable occupancy and legal compliance for complete peace of mind.</p>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ export default function AboutPage() {
                     <Camera className="w-6 h-6 text-[var(--color-accent)]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--color-primary)] mb-2 text-lg">Photo-Verified Maintenance</h4>
+                    <h3 className="font-semibold text-[var(--color-primary)] mb-2 text-lg">Photo-Verified Maintenance</h3>
                     <p className="text-sm text-[var(--color-muted)] leading-relaxed">Visual proof of work done before any vendor payment, ensuring high standards and absolute transparency.</p>
                   </div>
                 </div>
@@ -394,7 +394,7 @@ export default function AboutPage() {
                   "Managing a property from outside Hyderabad can be difficult. Having a local team coordinate the day-to-day requirements makes the process much easier."
                 </p>
                 <div className="mt-auto border-t border-[var(--color-divider)] pt-6">
-                  <h4 className="font-bold text-[var(--color-primary)]">Property Owner</h4>
+                  <h3 className="font-bold text-[var(--color-primary)]">Property Owner</h3>
                   <p className="text-sm text-[var(--color-muted)]">Hyderabad</p>
                 </div>
               </div>
