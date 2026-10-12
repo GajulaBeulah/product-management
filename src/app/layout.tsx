@@ -55,6 +55,9 @@ export const metadata: Metadata = {
     description: siteConfig.brand.description,
     images: [`${siteConfig.brand.url}/images/villa.jpg`],
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
 };
 
 const jsonLd = {
@@ -109,20 +112,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <html lang="en" className={`${jakarta.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
-        {/* SEO Analytics Tag */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX');
-            `,
-          }}
-        />
+        {gaId && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            />
+            <script
+              id="google-analytics"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}', {
+                    page_path: window.location.pathname,
+                    anonymize_ip: true
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
