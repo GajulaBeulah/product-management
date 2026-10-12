@@ -6,13 +6,12 @@ export function Footer() {
     <footer className="bg-[var(--color-primary)] text-white pt-16 pb-8 border-t border-[var(--color-divider)]/10 mt-auto">
       <div className="container mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
         <div className="col-span-1 md:col-span-1">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 bg-[var(--color-primary)] text-[var(--color-accent)] rounded flex items-center justify-center font-bold text-xl">
-              HPM
-            </div>
-            <span className="font-bold text-xl tracking-tight">
-              {siteConfig.brand.name}
-            </span>
+          <div className="flex items-center gap-3 mb-6">
+            <img 
+              src="/hpm-logo-dark.png" 
+              alt={siteConfig.brand.name} 
+              className="h-10 w-auto object-contain brightness-110"
+            />
           </div>
           <p className="text-gray-400 text-sm leading-relaxed mb-6">
             {siteConfig.brand.tagline}
