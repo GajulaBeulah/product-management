@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: `Flat Management Services in Hyderabad | ${siteConfig.brand.name}`,
     description: "Professional flat rental management in Hyderabad. Zero-hassle tenancy, strict background checks, and digital rent remittance.",
     url: `${siteConfig.brand.url}/services/flat-management`,
+    siteName: siteConfig.brand.name,
+    locale: "en_IN",
+    type: "website",
     images: [
       {
         url: `${siteConfig.brand.url}/images/flat.jpg`,
@@ -22,12 +25,97 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `Flat Management Services in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Professional flat rental management in Hyderabad. Zero-hassle tenancy, strict background checks, and digital rent remittance.",
+    images: [`${siteConfig.brand.url}/images/flat.jpg`],
+  },
 };
 
 export default function FlatManagementPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Flat Management Services in Hyderabad",
+        "serviceType": "Property Management",
+        "description": "End-to-end flat and individual apartment unit management in Hyderabad including tenant KYC verification, 11-month agreement execution, on-time rent remittance, and photo-verified repairs.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": siteConfig.brand.name,
+          "url": siteConfig.brand.url
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Hyderabad"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does flat management include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It includes everything from tenant sourcing, KYC, lease execution, rent collection, to ongoing maintenance and repair coordination."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you verify tenants?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We conduct strict police verifications, employment checks, and previous landlord references before approving any tenant."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is rent collected?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rent is collected digitally and transferred directly to your designated bank account without any escrow holding."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How are maintenance requests handled?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tenants raise requests with us. We get a quote, seek your approval, complete the work, and provide photo proof along with the vendor invoice."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I receive repair photos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we mandate before-and-after photo evidence for every single repair executed at your property."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often will I receive property updates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You will receive a monthly rent remittance report, plus immediate updates for any maintenance or tenant-related matters."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
-    <ExpandedServicePage
-      data={{
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <ExpandedServicePage
+        data={{
         id: "flat",
         title: "Flat Management",
         heroDescription: "Complete custody for individual rental units. We handle everything from tenant placement to ongoing maintenance.",
@@ -99,6 +187,7 @@ export default function FlatManagementPage() {
         ],
         whatsappMessage: "Hi Hyderabad Properties Management, I need rental & tenant management for my Flat in Hyderabad."
       }}
-    />
+      />
+    </>
   );
 }

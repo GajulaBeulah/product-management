@@ -59,18 +59,49 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": siteConfig.brand.name,
-  "image": `${siteConfig.brand.url}/images/villa.jpg`,
-  "url": siteConfig.brand.url,
-  "telephone": siteConfig.contact.phone,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": siteConfig.contact.officeAddress,
-    "addressLocality": siteConfig.brand.city,
-    "addressCountry": "IN"
-  },
-  "description": siteConfig.brand.description
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "RealEstateAgent"],
+      "@id": `${siteConfig.brand.url}/#business`,
+      "name": siteConfig.brand.name,
+      "legalName": siteConfig.brand.name,
+      "url": siteConfig.brand.url,
+      "logo": `${siteConfig.brand.url}/hpm-logo-transparent.png`,
+      "image": `${siteConfig.brand.url}/images/villa.jpg`,
+      "description": siteConfig.brand.description,
+      "telephone": siteConfig.contact.phone,
+      "email": siteConfig.contact.email,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": siteConfig.contact.officeAddress,
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500028",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": siteConfig.localities.map(loc => ({
+        "@type": "City",
+        "name": `${loc}, Hyderabad`
+      })),
+      "priceRange": "₹₹",
+      "foundingDate": "2009"
+    }
+  ]
 };
 
 export default function RootLayout({

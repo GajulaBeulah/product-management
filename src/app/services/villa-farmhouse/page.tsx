@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: `Villa & Farmhouse Caretaking in Hyderabad | ${siteConfig.brand.name}`,
     description: "Premium estate caretaking and maintenance for villas and farmhouses in Hyderabad. Weekend arrival preparation and weekly video updates.",
     url: `${siteConfig.brand.url}/services/villa-farmhouse`,
+    siteName: siteConfig.brand.name,
+    locale: "en_IN",
+    type: "website",
     images: [
       {
         url: `${siteConfig.brand.url}/images/villa.jpg`,
@@ -21,6 +24,12 @@ export const metadata: Metadata = {
         alt: "Villa and Farmhouse Caretaking Hyderabad",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Villa & Farmhouse Caretaking in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Premium estate caretaking and maintenance for villas and farmhouses in Hyderabad. Weekend arrival preparation and weekly video updates.",
+    images: [`${siteConfig.brand.url}/images/villa.jpg`],
   },
 };
 

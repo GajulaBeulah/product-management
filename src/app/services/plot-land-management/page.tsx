@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: `Open Plot & Land Management in Hyderabad | ${siteConfig.brand.name}`,
     description: "Physical custody and boundary protection for vacant land plots in Hyderabad. Geo-tagged visual inspections and anti-encroachment vigilance.",
     url: `${siteConfig.brand.url}/services/plot-land-management`,
+    siteName: siteConfig.brand.name,
+    locale: "en_IN",
+    type: "website",
     images: [
       {
         url: `${siteConfig.brand.url}/images/plot.jpg`,
@@ -21,6 +24,12 @@ export const metadata: Metadata = {
         alt: "Plot and Land Management Hyderabad",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Open Plot & Land Management in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Physical custody and boundary protection for vacant land plots in Hyderabad. Geo-tagged visual inspections and anti-encroachment vigilance.",
+    images: [`${siteConfig.brand.url}/images/plot.jpg`],
   },
 };
 

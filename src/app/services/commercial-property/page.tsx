@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: `Commercial Property Management in Hyderabad | ${siteConfig.brand.name}`,
     description: "Institutional-grade commercial real estate management in Hyderabad. Office space, retail units, and standalone commercial building administration.",
     url: `${siteConfig.brand.url}/services/commercial-property`,
+    siteName: siteConfig.brand.name,
+    locale: "en_IN",
+    type: "website",
     images: [
       {
         url: `${siteConfig.brand.url}/images/commercial.jpg`,
@@ -21,6 +24,12 @@ export const metadata: Metadata = {
         alt: "Commercial Property Management Hyderabad",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Commercial Property Management in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Institutional-grade commercial real estate management in Hyderabad. Office space, retail units, and standalone commercial building administration.",
+    images: [`${siteConfig.brand.url}/images/commercial.jpg`],
   },
 };
 

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: `Apartment & Society Management in Hyderabad | ${siteConfig.brand.name}`,
     description: "Complete administration and facility care for residential apartment buildings and societies across Hyderabad.",
     url: `${siteConfig.brand.url}/services/apartment-management`,
+    siteName: siteConfig.brand.name,
+    locale: "en_IN",
+    type: "website",
     images: [
       {
         url: `${siteConfig.brand.url}/images/apartment.jpg`,
@@ -21,6 +24,12 @@ export const metadata: Metadata = {
         alt: "Apartment Management Hyderabad",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Apartment & Society Management in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Complete administration and facility care for residential apartment buildings and societies across Hyderabad.",
+    images: [`${siteConfig.brand.url}/images/apartment.jpg`],
   },
 };
 
