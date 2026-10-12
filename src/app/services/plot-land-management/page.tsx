@@ -51,7 +51,7 @@ export default function PlotLandManagementPage() {
         ],
         reviews: [
           {
-            quote: "I haven't visited India in 5 years, but the geo-tagged videos from TotalAsset give me 100% confidence my land is safe.",
+            quote: "I haven't visited India in 5 years, but the geo-tagged videos from Hyderabad Properties Management give me 100% confidence my land is safe.",
             name: "Sunil Reddy",
             location: "Plot Owner, Kokapet (NRI)"
           },
@@ -74,7 +74,7 @@ export default function PlotLandManagementPage() {
           { question: "Do you clear the land?", answer: "Yes, we coordinate the hiring of labor or machinery to clear weeds, bushes, and illegally dumped debris." },
           { question: "Is this service available for agricultural land?", answer: "Yes, we manage both residential plots and large open agricultural land parcels." }
         ],
-        whatsappMessage: "Hi TotalAsset, I need boundary inspection & custody for my Plot in Hyderabad."
+        whatsappMessage: "Hi Hyderabad Properties Management, I need boundary inspection & custody for my Plot in Hyderabad."
       }}
     />
   );

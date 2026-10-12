@@ -261,7 +261,7 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
                 Your Property Deserves<br/>Professional Care
               </h2>
               <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl">
-                Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, TotalAsset can help you manage it with greater confidence and transparency.
+                Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, {siteConfig.brand.name} can help you manage it with greater confidence and transparency.
               </p>
             </div>
 
@@ -286,7 +286,7 @@ export function ExpandedServicePage({ data }: { data: ServiceData }) {
                   </div>
                 </div>
                 <div className="text-sm">
-                  <span className="font-bold text-white">5/5</span> <span className="text-gray-400">(500+ properties)</span>
+                  <span className="font-bold text-white">5/5</span> <span className="text-gray-400">(20+ properties)</span>
                 </div>
               </div>
             </div>

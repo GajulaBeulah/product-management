@@ -52,7 +52,7 @@ export default function CommercialPropertyPage() {
         ],
         reviews: [
           {
-            quote: "TotalAsset handles the leasing and maintenance of our Hitec City office space impeccably. They are highly professional.",
+            quote: "Hyderabad Properties Management handles the leasing and maintenance of our Hitec City office space impeccably. They are highly professional.",
             name: "Sanjay M.",
             location: "Commercial Landlord, Hitec City"
           },
@@ -75,7 +75,7 @@ export default function CommercialPropertyPage() {
           { question: "Can you manage multi-tenant buildings?", answer: "Absolutely. We manage rent rolls, common area maintenance (CAM) apportioning, and dispute resolution for multi-tenant properties." },
           { question: "What kind of reporting do you provide?", answer: "We provide detailed monthly logs covering rent collection, CAM utilization, vendor payments, and maintenance histories." }
         ],
-        whatsappMessage: "Hi TotalAsset, I have a commercial space in Hyderabad requiring professional management."
+        whatsappMessage: "Hi Hyderabad Properties Management, I have a commercial space in Hyderabad requiring professional management."
       }}
     />
   );

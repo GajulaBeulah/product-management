@@ -13,7 +13,7 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function AboutPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent("Hi TotalAsset, I would like to know more about your property management services.")}`;
+  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(`Hi ${siteConfig.brand.name}, I would like to know more about your property management services.`)}`;
 
   return (
     <div className="pb-20 md:pb-0 bg-[var(--color-background)]">
@@ -21,7 +21,7 @@ export default function AboutPage() {
       {/* 1. HERO SECTION (Matches Villagex Top Banner) */}
       <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/images/villa.jpg" alt="About TotalAsset" className="w-full h-full object-cover" />
+          <img src="/images/villa.jpg" alt={`About ${siteConfig.brand.name}`} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[var(--color-primary)]/80"></div>
         </div>
         <div className="relative z-10 text-center text-white flex flex-col items-center pt-16">
@@ -44,7 +44,7 @@ export default function AboutPage() {
             
             {/* Left Col: Title, Text, Stats, Button */}
             <div className="flex flex-col justify-center h-full">
-              <div className="text-[var(--color-accent)] font-semibold uppercase tracking-wider text-sm mb-2">TotalAsset Management</div>
+              <div className="text-[var(--color-accent)] font-semibold uppercase tracking-wider text-sm mb-2">{siteConfig.brand.name}</div>
               <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-[var(--color-primary)] leading-[1.2]">A team you can actually trust with your keys.</h2>
               <p className="text-[var(--color-muted)] mb-8 leading-relaxed">
                 We're a dedicated property management team based right here in Hyderabad. Whether you own a family home, a commercial space, or a vacant plot, we treat your property like it's our own—handling all the everyday headaches so you don't have to.
@@ -53,16 +53,16 @@ export default function AboutPage() {
               {/* Stats Grid */}
               <div className="grid grid-cols-3 gap-y-6 gap-x-4 mb-8">
                 <div>
-                  <div className="text-3xl font-semibold text-[var(--color-primary)]">500+</div>
+                  <div className="text-3xl font-semibold text-[var(--color-primary)]">20+</div>
                   <div className="text-sm text-[var(--color-muted)]">Properties Managed</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-semibold text-[var(--color-primary)]">17</div>
+                  <div className="text-sm text-[var(--color-muted)]">Years Experience</div>
                 </div>
                 <div>
                   <div className="text-3xl font-semibold text-[var(--color-primary)]">100%</div>
                   <div className="text-sm text-[var(--color-muted)]">Transparent Updates</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-semibold text-[var(--color-primary)]">Top 10</div>
-                  <div className="text-sm text-[var(--color-muted)]">Local Firms*</div>
                 </div>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
               
               <div className="pt-8 border-t border-[var(--color-divider)]">
                 <p className="text-lg text-[var(--color-muted)] leading-relaxed font-light">
-                  TotalAsset Management provides end-to-end property care, ensuring your residential and commercial assets in Hyderabad are perfectly maintained and highly profitable. From sourcing verified tenants and executing secure rental agreements, to performing regular inspections and prompt maintenance—we handle all the daily operations so you can enjoy your returns with absolute peace of mind.
+                  {siteConfig.brand.name} provides end-to-end property care, ensuring your residential and commercial assets in Hyderabad are perfectly maintained and highly profitable. From sourcing verified tenants and executing secure rental agreements, to performing regular inspections and prompt maintenance—we handle all the daily operations so you can enjoy your returns with absolute peace of mind.
                 </p>
               </div>
             </div>
@@ -161,7 +161,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. WHY TOTALASSET (Matches "Perfect Destination" vertical list layout) */}
+      {/* 6. WHY HYDERABAD PROPERTIES MANAGEMENT (Matches "Perfect Destination" vertical list layout) */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -193,7 +193,7 @@ export default function AboutPage() {
 
             {/* Right Col: Title + Vertical List */}
             <div className="w-full lg:w-1/2">
-              <div className="text-[var(--color-accent)] font-semibold uppercase tracking-wider text-sm mb-2">Why TotalAsset</div>
+              <div className="text-[var(--color-accent)] font-semibold uppercase tracking-wider text-sm mb-2">Why {siteConfig.brand.name}</div>
               <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-[var(--color-primary)] leading-[1.2]">Perfect Partner for Property Owners</h2>
               
               <div className="space-y-8">
@@ -241,7 +241,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-[var(--color-accent)]">Your Property. Our Responsibility.</h2>
           <p className="text-xl text-gray-300 leading-relaxed mb-12">
-            TotalAsset acts as a dedicated property custodian and coordinates property-related activities with the owner's interests entirely in mind.
+            {siteConfig.brand.name} acts as a dedicated property custodian and coordinates property-related activities with the owner's interests entirely in mind.
           </p>
           <div className="bg-white/10 p-10 rounded-2xl border border-white/20 inline-block text-left max-w-2xl">
             <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -410,7 +410,7 @@ export default function AboutPage() {
           <div className="space-y-4">
             {[
               {
-                q: "What does TotalAsset Management do?",
+                q: `What does ${siteConfig.brand.name} do?`,
                 a: "We provide comprehensive property management services, coordinating tenants, maintenance, and asset care for owners in Hyderabad."
               },
               {
@@ -490,7 +490,7 @@ export default function AboutPage() {
                 Your Property Deserves Professional Care
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed font-medium">
-                Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, TotalAsset can help you manage it with greater confidence and transparency.
+                Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, {siteConfig.brand.name} can help you manage it with greater confidence and transparency.
               </p>
             </div>
 
@@ -514,7 +514,7 @@ export default function AboutPage() {
                   <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] border-2 border-[var(--color-primary)] flex items-center justify-center text-xs font-bold text-white">+5k</div>
                 </div>
                 <div className="text-sm font-medium text-gray-300">
-                  <span className="text-white font-bold">5/5</span> (500+ properties)
+                  <span className="text-white font-bold">5/5</span> (20+ properties)
                 </div>
               </div>
             </div>

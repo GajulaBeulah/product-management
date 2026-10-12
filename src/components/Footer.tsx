@@ -8,7 +8,7 @@ export function Footer() {
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center gap-2 mb-6">
             <div className="w-10 h-10 bg-[var(--color-primary)] text-[var(--color-accent)] rounded flex items-center justify-center font-bold text-xl">
-              TA
+              HPM
             </div>
             <span className="font-bold text-xl tracking-tight">
               {siteConfig.brand.name}
@@ -59,11 +59,11 @@ export function Footer() {
           
           {/* SEO Hidden Social Links */}
           <div className="hidden">
-            <a href="https://facebook.com/totalasset">Facebook</a>
-            <a href="https://twitter.com/totalasset">Twitter</a>
-            <a href="https://instagram.com/totalasset">Instagram</a>
-            <a href="https://linkedin.com/company/totalasset">LinkedIn</a>
-            <a href="https://youtube.com/@totalasset">YouTube</a>
+            <a href="https://facebook.com/hyderabadpropertiesmanagement">Facebook</a>
+            <a href="https://twitter.com/hyderabadpropertiesmanagement">Twitter</a>
+            <a href="https://instagram.com/hyderabadpropertiesmanagement">Instagram</a>
+            <a href="https://linkedin.com/company/hyderabadpropertiesmanagement">LinkedIn</a>
+            <a href="https://youtube.com/@hyderabadpropertiesmanagement">YouTube</a>
           </div>
         </div>
       </div>

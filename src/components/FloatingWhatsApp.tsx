@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/site-config";
 
 export function FloatingWhatsApp() {
-  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent("Hi TotalAsset, I would like to know more about your property management services.")}`;
+  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(`Hi ${siteConfig.brand.name}, I would like to know more about your property management services.`)}`;
 
   return (
     <a

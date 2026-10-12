@@ -20,20 +20,20 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   brand: {
-    name: "TotalAsset Management",
+    name: "Hyderabad Properties Management",
     tagline: "Property Management Hyderabad",
-    description: "TotalAsset provides professional property management, absolute transparency, strict tenant KYC, and photo-verified repair estimates for assets in Hyderabad.",
-    foundedYear: 2026,
+    description: "Hyderabad Properties Management provides professional property management, absolute transparency, strict tenant KYC, and photo-verified repair estimates for assets in Hyderabad.",
+    foundedYear: 2009,
     city: "Hyderabad, Telangana",
     url: "https://product-management-gold-ten.vercel.app",
   },
   contact: {
-    phone: "+919876543210",
-    phoneDisplay: "+91 98765 43210",
-    whatsappNumber: "919876543210",
-    email: "contact@totalasset.com",
-    officeAddress: "Hyderabad, Telangana",
-    workingHours: "24/7",
+    phone: "+919502786217",
+    phoneDisplay: "+91 95027 86217",
+    whatsappNumber: "919502786217",
+    email: "info@hyderabadpropertiesmanagement.com",
+    officeAddress: "12-2-826/A/46 first floor LIC Colony Beside Bus Depot Mehdipatnam Hyderabad",
+    workingHours: "10 AM - 6 PM",
   },
   localities: [
     "Gachibowli", "Kondapur", "Tellapur", "Shankarpally", "Kokapet", "Shamshabad",

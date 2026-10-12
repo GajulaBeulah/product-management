@@ -13,7 +13,7 @@ export default function VillaFarmhouseManagementPage() {
         overviewDescription: [
           "Luxury villas and farmhouses require consistent upkeep to prevent degradation, even when unoccupied. Our premium caretaking service ensures your estate is always in pristine condition.",
           "We coordinate deep cleaning, landscaping, swimming pool maintenance, and 24/7 security. For weekend retreats, we prepare the property ahead of your arrival so you can simply walk in and relax.",
-          "Trust TotalAsset to preserve the beauty, functionality, and security of your highest-value residential assets."
+          "Trust Hyderabad Properties Management to preserve the beauty, functionality, and security of your highest-value residential assets."
         ],
         overviewImage: "/images/villa.jpg",
         keyInclusions: [
@@ -57,7 +57,7 @@ export default function VillaFarmhouseManagementPage() {
             location: "Farmhouse Owner, Shankarpally"
           },
           {
-            quote: "The landscaping and pool are flawlessly maintained. TotalAsset provides true luxury caretaking.",
+            quote: "The landscaping and pool are flawlessly maintained. Hyderabad Properties Management provides true luxury caretaking.",
             name: "Priya T.",
             location: "Villa Owner, Tellapur"
           },
@@ -75,7 +75,7 @@ export default function VillaFarmhouseManagementPage() {
           { question: "How is security handled for remote farmhouses?", answer: "We can coordinate 24/7 manned security guards and ensure proper boundary lighting and CCTV function." },
           { question: "Will I get visual proof of the property's condition?", answer: "Yes, we send detailed photo and video reports regularly." }
         ],
-        whatsappMessage: "Hi TotalAsset, I want to discuss caretaking & upkeep for my Villa/Farmhouse."
+        whatsappMessage: "Hi Hyderabad Properties Management, I want to discuss caretaking & upkeep for my Villa/Farmhouse."
       }}
     />
   );

@@ -4,7 +4,7 @@ import { Phone, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/site-config";
 
 export function MobileStickyBar() {
-  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent("Hi TotalAsset, I would like to consult regarding my property.")}`;
+  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(`Hi ${siteConfig.brand.name}, I would like to consult regarding my property.`)}`;
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[var(--color-background)] border-t border-[var(--color-divider)] shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50">

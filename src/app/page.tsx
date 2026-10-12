@@ -71,13 +71,13 @@ export default function HomePage() {
 
   const reviewsData = [
     {
-      text: "Living in the US, managing my Hyderabad villa was a nightmare until I found TotalAsset. Their photo-verified repair estimates give me absolute peace of mind.",
+      text: `Living in the US, managing my Hyderabad villa was a nightmare until I found ${siteConfig.brand.name}. Their photo-verified repair estimates give me absolute peace of mind.`,
       initials: "RK",
       name: "Rahul K.",
       role: "NRI, United States"
     },
     {
-      text: "The tenant KYC process is incredibly strict. I've had zero rent defaults in my apartment since TotalAsset took over the management.",
+      text: `The tenant KYC process is incredibly strict. I've had zero rent defaults in my apartment since ${siteConfig.brand.name} took over the management.`,
       initials: "SM",
       name: "Sneha M.",
       role: "Local Investor"
@@ -95,7 +95,7 @@ export default function HomePage() {
       role: "Plot Owner"
     },
     {
-      text: "I was struggling with common area maintenance in our 4-unit building. TotalAsset took over the entire society coordination flawlessly.",
+      text: `I was struggling with common area maintenance in our 4-unit building. ${siteConfig.brand.name} took over the entire society coordination flawlessly.`,
       initials: "PR",
       name: "Priya R.",
       role: "Apartment Owner"
@@ -461,7 +461,7 @@ export default function HomePage() {
                 Your Property Deserves<br/>Professional Care
               </h2>
               <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl">
-                Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, TotalAsset can help you manage it with greater confidence and transparency.
+                Whether you own a rental flat, apartment, villa, farmhouse, plot or commercial property in Hyderabad, {siteConfig.brand.name} can help you manage it with greater confidence and transparency.
               </p>
             </div>
 
@@ -486,7 +486,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="text-sm">
-                  <span className="font-bold text-white">5/5</span> <span className="text-gray-400">(500+ properties)</span>
+                  <span className="font-bold text-white">5/5</span> <span className="text-gray-400">(20+ properties)</span>
                 </div>
               </div>
             </div>

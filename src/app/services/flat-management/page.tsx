@@ -13,7 +13,7 @@ export default function FlatManagementPage() {
         overviewDescription: [
           "Our flat management service helps property owners enjoy the benefits of rental income without the daily hassles of property management.",
           "Whether you are an NRI or a local investor, we handle tenant sourcing, KYC verification, and maintenance requests on your behalf. You receive rent directly into your account with complete transparency.",
-          "TotalAsset helps protect your property's value through regular inspections, timely repairs, and photo-verified maintenance updates."
+          "Hyderabad Properties Management helps protect your property's value through regular inspections, timely repairs, and photo-verified maintenance updates."
         ],
         overviewImage: "/images/flat.jpg",
         keyInclusions: [
@@ -51,7 +51,7 @@ export default function FlatManagementPage() {
         ],
         reviews: [
           {
-            quote: "TotalAsset made managing my Hyderabad rental property much easier while I was living away.",
+            quote: "Hyderabad Properties Management made managing my Hyderabad rental property much easier while I was living away.",
             name: "Rahul Sharma",
             location: "Property Owner, Dubai"
           },
@@ -74,7 +74,7 @@ export default function FlatManagementPage() {
           { question: "Will I receive repair photos?", answer: "Yes, we mandate before-and-after photo evidence for every single repair executed at your property." },
           { question: "How often will I receive property updates?", answer: "You will receive a monthly rent remittance report, plus immediate updates for any maintenance or tenant-related matters." }
         ],
-        whatsappMessage: "Hi TotalAsset, I need rental & tenant management for my Flat in Hyderabad."
+        whatsappMessage: "Hi Hyderabad Properties Management, I need rental & tenant management for my Flat in Hyderabad."
       }}
     />
   );

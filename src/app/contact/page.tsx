@@ -17,7 +17,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent("Hi TotalAsset, I would like to inquire about your property management services.")}`;
+  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(`Hi ${siteConfig.brand.name}, I would like to inquire about your property management services.`)}`;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ export default function ContactPage() {
       {/* 1. HERO SECTION (Matches About Us Banner) */}
       <section className="relative w-full h-[350px] md:h-[450px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/images/commercial.jpg" alt="Contact TotalAsset" className="w-full h-full object-cover" />
+          <img src="/images/commercial.jpg" alt={`Contact ${siteConfig.brand.name}`} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[var(--color-primary)]/80"></div>
         </div>
         <div className="relative z-10 text-center text-white flex flex-col items-center pt-16">
@@ -117,6 +117,9 @@ export default function ContactPage() {
                     <p className="text-[var(--color-muted)] font-medium">
                       {siteConfig.contact.officeAddress}
                     </p>
+                    <p className="text-sm text-[var(--color-muted)] mt-2">
+                      <span className="font-semibold text-[var(--color-primary)]">Timings:</span> {siteConfig.contact.workingHours}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -134,7 +137,7 @@ export default function ContactPage() {
                       <Send className="w-8 h-8" />
                     </div>
                     <h4 className="text-xl font-semibold mb-2">Message Sent Successfully!</h4>
-                    <p className="text-green-700">Thank you for reaching out to TotalAsset Management. Our team will contact you within 24 hours.</p>
+                    <p className="text-green-700">Thank you for reaching out to {siteConfig.brand.name}. Our team will contact you within 24 hours.</p>
                     <button 
                       onClick={() => setIsSubmitted(false)}
                       className="mt-6 text-green-700 font-semibold hover:underline"
@@ -181,7 +184,7 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={(e) => setFormData({...formData, phone: e.target.value})}
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50 focus:border-[var(--color-accent)] transition-all font-medium"
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 95027 86217"
                         />
                       </div>
                       <div className="space-y-2">

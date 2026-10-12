@@ -52,7 +52,7 @@ export default function ApartmentManagementPage() {
         ],
         reviews: [
           {
-            quote: "TotalAsset transformed our building's operations. The common areas are spotless and the lifts are always working.",
+            quote: "Hyderabad Properties Management transformed our building's operations. The common areas are spotless and the lifts are always working.",
             name: "Rajesh Gupta",
             location: "Building Owner, Gachibowli"
           },
@@ -75,7 +75,7 @@ export default function ApartmentManagementPage() {
           { question: "How do you report to the owner/committee?", answer: "We provide comprehensive monthly reports covering financials, maintenance logs, and resident issues." },
           { question: "Can you manage individual units as well?", answer: "Yes, we offer Flat Management as an add-on for owners wanting their specific units managed alongside the building." }
         ],
-        whatsappMessage: "Hi TotalAsset, I need management services for an Apartment complex in Hyderabad."
+        whatsappMessage: "Hi Hyderabad Properties Management, I need management services for an Apartment complex in Hyderabad."
       }}
     />
   );
