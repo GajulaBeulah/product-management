@@ -1,5 +1,28 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/site-config";
 import { ExpandedServicePage } from "@/components/ExpandedServicePage";
 import { Building2, Users, Wrench, Shield, ClipboardCheck, MessageSquare } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Apartment & Society Management in Hyderabad | Multi-Unit Property Administration",
+  description: "Institutional-grade apartment complex and multi-unit building management in Hyderabad. Full common-area upkeep, lift/generator AMC oversight, security personnel coordination, and resident mediation.",
+  alternates: {
+    canonical: `${siteConfig.brand.url}/services/apartment-management`,
+  },
+  openGraph: {
+    title: `Apartment & Society Management in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Complete administration and facility care for residential apartment buildings and societies across Hyderabad.",
+    url: `${siteConfig.brand.url}/services/apartment-management`,
+    images: [
+      {
+        url: `${siteConfig.brand.url}/images/apartment.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Apartment Management Hyderabad",
+      },
+    ],
+  },
+};
 
 export default function ApartmentManagementPage() {
   return (

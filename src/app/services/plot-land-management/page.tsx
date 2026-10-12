@@ -1,5 +1,28 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/site-config";
 import { ExpandedServicePage } from "@/components/ExpandedServicePage";
 import { Map, AlertTriangle, ShieldCheck, Leaf, Camera, FileText } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Open Plot & Land Management in Hyderabad | Anti-Encroachment & Inspections",
+  description: "Protect your vacant land and residential plots across Hyderabad from encroachment. Quarterly geo-tagged inspection reports, boundary fencing checks, signboards, and weed clearance.",
+  alternates: {
+    canonical: `${siteConfig.brand.url}/services/plot-land-management`,
+  },
+  openGraph: {
+    title: `Open Plot & Land Management in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Physical custody and boundary protection for vacant land plots in Hyderabad. Geo-tagged visual inspections and anti-encroachment vigilance.",
+    url: `${siteConfig.brand.url}/services/plot-land-management`,
+    images: [
+      {
+        url: `${siteConfig.brand.url}/images/plot.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Plot and Land Management Hyderabad",
+      },
+    ],
+  },
+};
 
 export default function PlotLandManagementPage() {
   return (

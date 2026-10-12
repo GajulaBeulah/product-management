@@ -1,5 +1,28 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/site-config";
 import { ExpandedServicePage } from "@/components/ExpandedServicePage";
 import { Home, Droplets, Leaf, Shield, Wrench, Calendar } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Villa & Farmhouse Caretaking in Hyderabad | Luxury Estate Management",
+  description: "Discreet, high-end caretaking for luxury villas, gated communities, and weekend farmhouses in Hyderabad (Shankarpally, Tellapur, Moinabad). Deep cleaning, swimming pool upkeep, gardening, and 24/7 security.",
+  alternates: {
+    canonical: `${siteConfig.brand.url}/services/villa-farmhouse`,
+  },
+  openGraph: {
+    title: `Villa & Farmhouse Caretaking in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Premium estate caretaking and maintenance for villas and farmhouses in Hyderabad. Weekend arrival preparation and weekly video updates.",
+    url: `${siteConfig.brand.url}/services/villa-farmhouse`,
+    images: [
+      {
+        url: `${siteConfig.brand.url}/images/villa.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Villa and Farmhouse Caretaking Hyderabad",
+      },
+    ],
+  },
+};
 
 export default function VillaFarmhouseManagementPage() {
   return (

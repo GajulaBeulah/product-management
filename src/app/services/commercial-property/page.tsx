@@ -1,5 +1,28 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/site-config";
 import { ExpandedServicePage } from "@/components/ExpandedServicePage";
 import { Building, Users, Wallet, Wrench, Shield, ClipboardCheck } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Commercial Property Management in Hyderabad | Office & Retail Leasing",
+  description: "Professional commercial property management in Hyderabad (Hitec City, Madhapur, Financial District). Commercial lease administration, CAM maintenance tracking, vendor management, and property tax compliance.",
+  alternates: {
+    canonical: `${siteConfig.brand.url}/services/commercial-property`,
+  },
+  openGraph: {
+    title: `Commercial Property Management in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Institutional-grade commercial real estate management in Hyderabad. Office space, retail units, and standalone commercial building administration.",
+    url: `${siteConfig.brand.url}/services/commercial-property`,
+    images: [
+      {
+        url: `${siteConfig.brand.url}/images/commercial.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Commercial Property Management Hyderabad",
+      },
+    ],
+  },
+};
 
 export default function CommercialPropertyPage() {
   return (

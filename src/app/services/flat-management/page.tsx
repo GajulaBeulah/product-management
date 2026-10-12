@@ -1,5 +1,28 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/site-config";
 import { ExpandedServicePage } from "@/components/ExpandedServicePage";
 import { Search, ShieldCheck, FileSignature, Wallet, Wrench, Camera } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Flat Management Services in Hyderabad | Tenant KYC & Rent Collection",
+  description: "End-to-end flat and individual apartment unit management in Hyderabad. Strict tenant police verification, 11-month agreement execution, on-time rent remittance, and photo-verified repairs.",
+  alternates: {
+    canonical: `${siteConfig.brand.url}/services/flat-management`,
+  },
+  openGraph: {
+    title: `Flat Management Services in Hyderabad | ${siteConfig.brand.name}`,
+    description: "Professional flat rental management in Hyderabad. Zero-hassle tenancy, strict background checks, and digital rent remittance.",
+    url: `${siteConfig.brand.url}/services/flat-management`,
+    images: [
+      {
+        url: `${siteConfig.brand.url}/images/flat.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Flat Management Hyderabad",
+      },
+    ],
+  },
+};
 
 export default function FlatManagementPage() {
   return (

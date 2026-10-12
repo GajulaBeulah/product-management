@@ -14,23 +14,46 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.brand.url),
-  title: `${siteConfig.brand.name} | ${siteConfig.brand.tagline}`,
-  description: siteConfig.brand.description,
+  title: {
+    default: `${siteConfig.brand.name} | Property Management Services in Hyderabad`,
+    template: `%s | ${siteConfig.brand.name}`,
+  },
+  description: "Hyderabad Properties Management provides professional property management in Hyderabad. End-to-end care for flats, apartments, villas, plots, and commercial properties with verified tenants, photo-verified repairs, and zero escrow delays.",
   alternates: {
     canonical: '/',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: `${siteConfig.brand.name} | ${siteConfig.brand.tagline}`,
+    title: `${siteConfig.brand.name} | Property Management in Hyderabad`,
     description: siteConfig.brand.description,
     url: siteConfig.brand.url,
     siteName: siteConfig.brand.name,
     locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: `${siteConfig.brand.url}/images/villa.jpg`,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.brand.name} - Professional Property Management Hyderabad`,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.brand.name} | ${siteConfig.brand.tagline}`,
+    title: `${siteConfig.brand.name} | Property Management in Hyderabad`,
     description: siteConfig.brand.description,
+    images: [`${siteConfig.brand.url}/images/villa.jpg`],
   },
 };
 
